@@ -1,0 +1,35 @@
+'use client'
+
+import React from 'react';
+import { useSideBar } from '@/contexts/sideBar';
+
+function ButtonMenu() {
+    const { isOpen, setIsOpen } = useSideBar();
+    return (
+        <button
+            className="flex flex-col h-12 w-12 z-20 justify-center items-center group"
+            onClick={() => setIsOpen(!isOpen)}
+        >
+            <div
+                className={`hamburger ${isOpen
+                    ? "rotate-45 translate-y-3 group-hover:opacity-100 bg-black"
+                    : "group-hover:opacity-100"
+                    }`}
+            />
+            <div
+                className={`hamburger ${isOpen
+                    ? "opacity-0 bg-black"
+                    : "group-hover:opacity-100"
+                    }`}
+            />
+            <div
+                className={`hamburger ${isOpen
+                    ? "-rotate-45 -translate-y-3 group-hover:opacity-100 bg-black"
+                    : "group-hover:opacity-100"
+                    }`}
+            />
+        </button>
+    );
+}
+
+export default ButtonMenu;
