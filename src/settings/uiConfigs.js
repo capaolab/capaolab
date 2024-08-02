@@ -25,4 +25,40 @@ export const UI_CONFIGS = {
       height: 35
     }
   },
+  PARTNERS: [
+    {
+      name: "greenole",
+      image: "/svg/logo_greenole.svg",
+      width: 800,
+      height: 800
+    },
+    {
+      name: "cam",
+      image: "/img/cam-tecnologia.png",
+      width: 800,
+      height: 800
+    },
+    {
+      name: "maktub",
+      image: "/img/maktub.png",
+      width: 400,
+      height: 400
+    },
+    {
+      name: "leafwell",
+      image: "/svg/leafwell.svg",
+      width: 60,
+      height: 60
+    }
+  ],
+  NAVLINKS: [
+    {
+      "name": "manifesto",
+      "url": "/hub/manifest",
+    },
+    {
+      "name": "serviços",
+      "url": "/hub/servicos",
+    },
+  ]
 };

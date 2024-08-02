@@ -13,7 +13,7 @@ function SideMenu() {
     return (
         <article className={`
             w-full h-screen absolute top-0 left-0 flex justify-end items-start
-            bg-black/30 backdrop-blur-lg z-10 ease-in-out duration-500
+             bg-black/20 backdrop-blur-lg z-10 ease-in-out duration-500
             ${isOpen ? "opacity-100" : "opacity-0"}
         `}
         >

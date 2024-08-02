@@ -8,12 +8,12 @@ export default function Home() {
       <section id="1" className="snap-always snap-start">
         <Principal />
       </section>
-      <div id="2" className="snap-always snap-start">
+      {/* <div id="2" className="snap-always snap-start">
         <Services />
       </div>
       <div id="3" className="snap-always snap-start">
         <CapaoLab />
-      </div>
+      </div> */}
     </main>
   );
 }
