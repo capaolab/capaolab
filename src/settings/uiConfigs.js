@@ -13,6 +13,12 @@ export const UI_CONFIGS = {
       height: 35
     }
   },
+  NAVLINKS: [
+    {
+      "name": "manifesto",
+      "url": "/hub/manifest",
+    },
+  ],
   IMAGE: {
     logo: {
       src: "/img/logotipo.png",
@@ -51,14 +57,48 @@ export const UI_CONFIGS = {
       height: 60
     }
   ],
-  NAVLINKS: [
+  SERVICES: [
     {
-      "name": "manifesto",
-      "url": "/hub/manifest",
+      icon: "emoji-desktop-computer",
+      name: "desenvolvimento web",
+      col: "row-span-2 col-span-2",
+      width: 120,
+      height: 120
     },
     {
-      "name": "serviços",
-      "url": "/hub/servicos",
+      icon: "aia-connect",
+      name: "Internet das Coisas",
+      col: "col-span-1",
+      width: 120,
+      height: 120
+    },
+    {
+      icon: "altcoinprices",
+      name: "consultorias",
+      col: "col-span-2",
+      width: 120,
+      height: 120
+    },
+    {
+      icon: "emoji-rounded-symbol-for-cai",
+      name: "Inteligência Artificial",
+      col: "col-span-2",
+      width: 120,
+      height: 120
+    },
+    {
+      icon: "cloud",
+      name: "computação em nuvem",
+      col: "col-span-2",
+      width: 120,
+      height: 120
+    },
+    {
+      icon: "just-craigslist",
+      name: "Agilidade Hippie",
+      col: "col-span-2",
+      width: 120,
+      height: 120
     },
   ]
 };

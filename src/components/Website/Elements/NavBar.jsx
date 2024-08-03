@@ -12,8 +12,8 @@ function Navbar() {
   const { isOpen } = useSideBar();
 
   return (
-    <nav className={`w-full h-12 flex justify-center items-center ${isOpen ? "z-0" : "z-20"}`}>
-      <div className='w-full lg:w-1/2 py-2 flex justify-start'>
+    <nav className={`w-full h-12 flex justify-center items-center`}>
+      <div className={`w-full lg:w-1/2 py-2 flex justify-start ${isOpen ? "z-0" : "z-20"} ease-in-out duratio-300`}>
         <ImageLink
           src={UI_CONFIGS.IMAGE.logo.src}
           url={"/"}
@@ -22,7 +22,7 @@ function Navbar() {
           height={UI_CONFIGS.IMAGE.logo.height}
         />
       </div>
-      <ul className='w-full mr-60 hidden xl:flex space-x-12 justify-end'>
+      <ul className={`w-full mr-40 hidden xl:flex space-x-12 justify-end ${isOpen ? "z-0" : "z-20"} ease-in-out duratio-300`}>
         {
           UI_CONFIGS.NAVLINKS.map((link, index) => (
             <NavLink

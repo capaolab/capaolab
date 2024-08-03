@@ -30,7 +30,7 @@ function SideMenu() {
                     css={'mt-1 sm:mt-2'}
                 />
                 <div className='h-full mr-16 mt-12'>
-                    <h2>Sidemenu</h2>
+                    <h2></h2>
                 </div>
                 <footer className='self-end mb-6 sm:mb-0'>
                     <nav className='py-2'>

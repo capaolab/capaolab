@@ -7,7 +7,7 @@ function ButtonMenu() {
     const { isOpen, setIsOpen } = useSideBar();
     return (
         <button
-            className="w-20 flex flex-col h-12 z-20 justify-center items-center group"
+            className={`w-20 flex flex-col h-12 z-30 justify-center items-center group ${isOpen ? "z-10" : "z-20"}`}
             onClick={() => setIsOpen(!isOpen)}
         >
             <div
