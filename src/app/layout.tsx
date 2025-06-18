@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 
-import './globals.css';
 import '@mantine/core/styles.css';
 import theme from "@/theme";
+
 import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
+import AppLayout from "@/components/AppLayout";
+
 
 const manRope = Manrope({
   variable: "--font-geist-sans",
@@ -52,7 +54,7 @@ export default function RootLayout({
       </head>
       <body className={`${manRope.variable} ${ibmPlex.variable}`}>
         <MantineProvider theme={theme} defaultColorScheme="light">
-          {children}
+          <AppLayout>{children}</AppLayout>
         </MantineProvider>
       </body>
     </html>

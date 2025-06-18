@@ -1,0 +1,7 @@
+.imageLink {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: auto;
+    height: auto;
+}
