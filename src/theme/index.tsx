@@ -43,10 +43,24 @@ const theme = createTheme({
         sizes: {
             h1: {
                 fontWeight: '700',
-                fontSize: '4rem',
-                lineHeight: '1.4',
+                fontSize: '3rem',
+                lineHeight: '1.0',
             },
-            h2: { fontSize: '30', lineHeight: '1.5' },
+            h2: {
+                fontWeight: '500',
+                fontSize: '2.5rem',
+                lineHeight: '1.25',
+            },
+            h3: {
+                fontWeight: '300',
+                fontSize: '1.5rem',
+                lineHeight: '1.25',
+            },
+            h4: {
+                fontWeight: '500',
+                fontSize: '1.5rem',
+                lineHeight: '1.5',
+            },
         },
     },
 
