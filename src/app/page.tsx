@@ -6,9 +6,9 @@ import { Title } from '@mantine/core';
 export default function Home() {
 
   return (
-    <main>
+    <div>
       <Title order={1}>Capão Lab</Title>
-    </main>
+    </div>
 
   );
 }
