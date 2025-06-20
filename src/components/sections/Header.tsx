@@ -1,6 +1,7 @@
 'use client';
+
 import React from 'react';
-import { AppShell, Burger, useMantineTheme, Group } from '@mantine/core';
+import { AppShell, Burger, useMantineTheme, Group, Overlay, Box, Title } from '@mantine/core';
 
 import ImageLink from '@/components/elements/ImageLink';
 
@@ -56,7 +57,7 @@ function NavBar({ opened, toggle }: { opened: boolean, toggle: () => void }) {
           (theme) => ({
             width: '100%',
             height: '100%',
-            backgroundColor: theme.colors.gray[9],
+            backgroundColor: 'transparent',
             color: theme.white,
             display: 'flex',
             flexDirection: 'column',
@@ -65,7 +66,12 @@ function NavBar({ opened, toggle }: { opened: boolean, toggle: () => void }) {
             zIndex: 100,
           })}
       >
-        Navbar
+        <Box style={{
+          zIndex: 110,
+        }}>
+          <Title order={3}>NavBar</Title>
+        </Box>
+        <Overlay color={theme.colors.gray[6]} backgroundOpacity={0.35} blur={10} zIndex={100} />
       </AppShell.Navbar>
     </>
   )

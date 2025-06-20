@@ -1,5 +1,5 @@
 import '@mantine/core/styles.css';
-import { createTheme, rem } from '@mantine/core';
+import { createTheme } from '@mantine/core';
 import { terracota, folha } from './colors';
 
 const theme = createTheme({
@@ -11,24 +11,6 @@ const theme = createTheme({
         md: '1',
         lg: '1.125',
         xl: '1.25',
-        '2xl': ' 1.5',
-        '3xl': ' 1.875',
-        '4xl': ' 2.25',
-        '5xl': ' 3',
-        '6xl': ' 3.75',
-        '7xl': ' 4.5',
-        '8xl': ' 6',
-        '9xl': ' 8',
-        '10xl': ' 10',
-        '11xl': ' 12',
-        '12xl': ' 14',
-        '13xl': ' 16',
-        '14xl': ' 18',
-        '15xl': ' 20',
-        '16xl': ' 24',
-        '17xl': ' 28',
-        '18xl': ' 32',
-        '19xl': ' 36',
     },
     lineHeights: {
         xs: '1.4',
@@ -43,12 +25,12 @@ const theme = createTheme({
         sizes: {
             h1: {
                 fontWeight: '700',
-                fontSize: '3rem',
+                fontSize: '2.5rem',
                 lineHeight: '1.0',
             },
             h2: {
                 fontWeight: '500',
-                fontSize: '2.5rem',
+                fontSize: '2rem',
                 lineHeight: '1.25',
             },
             h3: {
