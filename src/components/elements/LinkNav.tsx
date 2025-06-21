@@ -1,4 +1,4 @@
-import { Anchor } from "@mantine/core";
+import { Anchor, Text } from "@mantine/core";
 import Image from "next/image";
 import classes from "./elements.module.css";
 
@@ -12,7 +12,6 @@ function LinkNav({ txt, url }: LinkNavProps) {
         <Anchor
             href={url}
             c="inherit"
-            // variant="subtle"
             className={classes.navLink}
         >
             <Image
@@ -22,9 +21,9 @@ function LinkNav({ txt, url }: LinkNavProps) {
                 width="16"
                 height="16"
             />
-            <span className='px-2 capitalize font-medium text-lg hover:text-folha-50 hover:underline'>
+            <Text fz={{ sm: 'md', lg: 'lg' }}>
                 {txt}
-            </span>
+            </Text>
             <Image
                 src="/svg/_[_fecha.svg"
                 className=""

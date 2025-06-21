@@ -5,8 +5,6 @@ import { createTheme } from '@mantine/core';
 import { terracota, folha } from './colors';
 
 const theme = createTheme({
-    fontFamily: 'Manrope, sans-serif',
-    fontFamilyMonospace: 'IBM Plex Mono, monospace',
     breakpoints: {
         xs: '30em',
         sm: '48em',
@@ -14,19 +12,29 @@ const theme = createTheme({
         lg: '74em',
         xl: '90em',
     },
+    fontFamily: 'Manrope, sans-serif',
+    fontFamilyMonospace: 'IBM Plex Mono, monospace',
     fontSizes: {
-        xs: '0.75',
-        sm: '0.875',
-        md: '1',
-        lg: '1.125',
-        xl: '1.25',
+        xs: '12px',
+        sm: '14px',
+        md: '16px',
+        lg: '18px',
+        xl: '20px',
+        axl: '26px',
+        bxl: '30px',
+        cxl: '36px',
+        dxl: '48px',
+        exl: '60px',
+        fxl: '72px',
+        gxl: '96px',
+        hxl: '8rem',
     },
     lineHeights: {
-        xs: '1.4',
-        sm: '1.45',
-        md: '1.55',
-        lg: '1.6',
-        xl: '1.65',
+        xs: '1',
+        sm: '1.25',
+        md: '1.5',
+        lg: '1.625',
+        xl: '1.75',
     },
     headings: {
         fontFamily: 'Manrope, sans-serif',
@@ -34,23 +42,15 @@ const theme = createTheme({
         sizes: {
             h1: {
                 fontWeight: '700',
-                fontSize: '2.5rem',
-                lineHeight: '1.0',
             },
             h2: {
                 fontWeight: '500',
-                fontSize: '2rem',
-                lineHeight: '1.25',
             },
             h3: {
                 fontWeight: '300',
-                fontSize: '1.5rem',
-                lineHeight: '1.25',
             },
             h4: {
-                fontWeight: '500',
-                fontSize: '1.5rem',
-                lineHeight: '1.5',
+                fontWeight: '300',
             },
         },
     },

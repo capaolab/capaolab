@@ -36,6 +36,7 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
                 style={{
                     display: 'flex',
                     alignItems: 'center',
+                    justifyItems: 'center',
                     justifyContent: 'space-between',
                     width: '100%',
                 }}
