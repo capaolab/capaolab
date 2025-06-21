@@ -23,7 +23,7 @@ function AppLayout({ children }: { children: React.ReactNode }) {
             }}
             navbar={{
                 width: '100%',
-                breakpoint: 'sm',
+                breakpoint: 'md',
                 collapsed: { mobile: !opened, desktop: true },
             }}
             footer={{

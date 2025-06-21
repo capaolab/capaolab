@@ -26,15 +26,7 @@ export default function CallAction() {
                     <Title order={2}>Manifesto do Capão Lab</Title>
                 </Box>
             </Modal>
-            <Button
-                variant="filled"
-                onClick={open}
-                mt={20}
-                style={(theme) => ({
-                    color: theme.white,
-                    backgroundColor: theme.colors.folha[8],
-                })}
-            >
+            <Button onClick={open} mt={20}>
                 Contato
             </Button>
         </Box>

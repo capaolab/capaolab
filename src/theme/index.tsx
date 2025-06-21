@@ -1,10 +1,19 @@
+'use client';
+
 import '@mantine/core/styles.css';
-import { createTheme } from '@mantine/core';
+import { Anchor, createTheme } from '@mantine/core';
 import { terracota, folha } from './colors';
 
 const theme = createTheme({
     fontFamily: 'Manrope, sans-serif',
     fontFamilyMonospace: 'IBM Plex Mono, monospace',
+    breakpoints: {
+        xs: '576px',
+        sm: '768px',
+        md: '992px',
+        lg: '1200px',
+        xl: '1400px',
+    },
     fontSizes: {
         xs: '0.75',
         sm: '0.875',
@@ -46,11 +55,21 @@ const theme = createTheme({
         },
     },
 
-    /**COLORS */
     colors: {
         terracota,
         folha,
     },
+
+    components: {
+        Button: {
+            defaultProps: {
+                variant: 'filled',
+                size: 'md',
+                radius: 'md',
+                color: 'folha.7',
+            },
+        },
+    }
 });
 
 export default theme;
