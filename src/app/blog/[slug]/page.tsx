@@ -7,13 +7,13 @@ export default async function Page({
     params: Promise<{ slug: string }>
 }) {
     const { slug } = await params
-    const { default: Post } = await import(`@/content/${slug}.mdx`)
+    const { default: Post } = await import(`@/posts/${slug}.mdx`)
 
     return <Post />
 }
 
 export function generateStaticParams() {
-    const postsDir = path.join(process.cwd(), 'src/content')
+    const postsDir = path.join(process.cwd(), 'src/posts')
     const files = fs.readdirSync(postsDir)
     return files
         .filter(file => file.endsWith('.mdx'))

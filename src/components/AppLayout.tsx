@@ -2,24 +2,28 @@
 
 import React from 'react'
 import { AppShell, Container } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import { useDisclosure, useHeadroom } from '@mantine/hooks';
 import Header from '@/components/sections/Header';
 import Footer from './sections/Footer';
+import Navbar from './sections/Navbar';
 
 function AppLayout({ children }: { children: React.ReactNode }) {
     const [opened, { toggle }] = useDisclosure(false);
+    const pinned = useHeadroom({ fixedAt: 120 });
 
     return (
         <AppShell
             transitionDuration={500}
             transitionTimingFunction="ease"
-            padding="md"
+            padding={{ base: 10, lg: 15, xl: 20 }}
             layout='alt'
             style={(theme) => ({
                 backgroundColor: theme.colors.terracota[8],
             })}
             header={{
-                height: { base: 60, sm: 60, mg: 60 },
+                height: { base: 60, sm: 80, xl: 80 },
+                offset: true,
+                collapsed: !pinned,
             }}
             navbar={{
                 width: '100%',
@@ -31,17 +35,15 @@ function AppLayout({ children }: { children: React.ReactNode }) {
             }}
         >
             <Header opened={opened} toggle={toggle} />
+            <Navbar />
             <AppShell.Main
                 style={(theme) => ({
-                    width: '100%',
-                    height: '100%',
-                    padding: theme.spacing.md,
                     backgroundColor: theme.colors.terracota[8],
                     color: theme.white,
                     boxShadow: theme.shadows.sm,
                 })}
             >
-                <Container fluid mt="60" style={{ height: '100%' }}>
+                <Container fluid style={{ height: '100%' }}>
                     {children}
                 </Container>
             </AppShell.Main>
