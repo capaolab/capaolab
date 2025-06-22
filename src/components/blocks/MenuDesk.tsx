@@ -1,5 +1,6 @@
 import { Group } from "@mantine/core";
 import LinkNav from "../elements/LinkNav";
+import { navLinksContent } from "@/content/navigation";
 function MenuDesk() {
     return (
         <Group
@@ -12,9 +13,9 @@ function MenuDesk() {
                 justifyContent: 'end',
             }}
         >
-            <LinkNav txt="Blog" url="/blog" />
-            <LinkNav txt="Sobre" url="/sobre" />
-            <LinkNav txt="Contato" url="/contato" />
+            {navLinksContent.map((link) => (
+                <LinkNav key={link.label} label={link.label} link={link.link} />
+            ))}
         </Group>
     );
 }

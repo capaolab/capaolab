@@ -13,13 +13,14 @@ import MenuDesk from '../blocks/MenuDesk';
 
 function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
     const theme = useMantineTheme();
-    const mediaQuery = useMediaQuery('(max-width: 65em)');
+    const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
 
     return (
         <AppShell.Header
             p={{ base: 10, lg: 15, xl: 20 }}
             withBorder={false}
             style={(theme) => ({
+                height: 'auto',
                 backgroundColor: theme.colors.terracota[8],
                 color: theme.white,
                 display: 'flex',
@@ -39,11 +40,11 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
                     justifyItems: 'center',
                     justifyContent: 'space-between',
                     width: '100%',
+                    height: '100%',
                 }}
             >
                 <ImageLink
                     url="/"
-                    // src="/img/cl-logo.jpeg"
                     src={mediaQuery ? '/img/cl-logo.jpeg' : '/img/logotipo.png'}
                     alt="Capão Lab Logo"
                     width={mediaQuery ? 40 : 200}

@@ -1,13 +1,12 @@
 .control {
     width: 100%;
     display: block;
-    font-size: var(--mantine-font-size-axl);
-    font-weight: var(--mantine-font-weight-xl);
-    padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
-    border-radius: var(--mantine-radius-md);
-    border: 4px;
+    padding: var(--mantine-spacing-md);
+    color: var(--mantine-color-gray-4);
 }
 .control:hover {
     background-color: var(--mantine-color-gray-8);
+    opacity: 0.4;
     text-decoration: underline;
+    color: var(--mantine-color-gray-1);
 } 

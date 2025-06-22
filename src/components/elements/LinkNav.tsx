@@ -3,14 +3,14 @@ import Image from "next/image";
 import classes from "./elements.module.css";
 
 interface LinkNavProps {
-    txt: string;
-    url: string;
+    label: string;
+    link: string;
 }
 
-function LinkNav({ txt, url }: LinkNavProps) {
+function LinkNav({ label, link }: LinkNavProps) {
     return (
         <Anchor
-            href={url}
+            href={link}
             c="inherit"
             className={classes.navLink}
         >
@@ -22,7 +22,7 @@ function LinkNav({ txt, url }: LinkNavProps) {
                 height="16"
             />
             <Text fz={{ sm: 'md', lg: 'lg' }}>
-                {txt}
+                {label}
             </Text>
             <Image
                 src="/svg/_[_fecha.svg"

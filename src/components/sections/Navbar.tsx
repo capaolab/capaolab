@@ -5,6 +5,7 @@ import {
     Overlay,
     Anchor,
 } from '@mantine/core';
+import { navLinksContent } from '@/content/navigation';
 import classes from './nav.module.css';
 
 
@@ -37,33 +38,18 @@ function Navbar() {
                 zIndex: 110,
                 marginTop: 60
             }}>
-                <Anchor
-                    href="/blog"
-                    c="inherit"
-                    // fw="bold"
-                    // fz="axl"
-                    className={classes.control}
-                >
-                    Blog
-                </Anchor>
-                <Anchor
-                    href="/blog"
-                    c="inherit"
-                    // fw="bold"
-                    // fz="axl"
-                    className={classes.control}
-                >
-                    Blog
-                </Anchor>
-                <Anchor
-                    href="/blog"
-                    c="inherit"
-                    // fw="bold"
-                    // fz="axl"
-                    className={classes.control}
-                >
-                    Blog
-                </Anchor>
+                {navLinksContent.map((link) => (
+                    <Anchor
+                        key={link.label}
+                        href={link.link}
+                        // c="inherit"
+                        fw="bold"
+                        fz="xl"
+                        className={classes.control}
+                    >
+                        {link.label}
+                    </Anchor>
+                ))}
             </Box>
             <Overlay color={theme.colors.terracota[9]} backgroundOpacity={0.75} blur={10} zIndex={100} />
         </AppShell.Navbar>

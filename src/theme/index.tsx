@@ -6,11 +6,10 @@ import { terracota, folha } from './colors';
 
 const theme = createTheme({
     breakpoints: {
-        xs: '30em',
-        sm: '48em',
-        md: '64em',
-        lg: '74em',
-        xl: '90em',
+        sm: '480px',    // Mobile
+        md: '820px',    // Tablet
+        lg: '1024px',   // Laptop
+        xl: '1280px',   // Desktop
     },
     fontFamily: 'Manrope, sans-serif',
     fontFamilyMonospace: 'IBM Plex Mono, monospace',
@@ -27,7 +26,7 @@ const theme = createTheme({
         exl: '60px',
         fxl: '72px',
         gxl: '96px',
-        hxl: '8rem',
+        hxl: '128px',
     },
     lineHeights: {
         xs: '1',
@@ -67,6 +66,7 @@ const theme = createTheme({
                 size: 'md',
                 radius: 'md',
                 color: 'folha.7',
+
             },
         },
     }
