@@ -7,7 +7,7 @@ import { terracota, folha } from './colors';
 const theme = createTheme({
     breakpoints: {
         sm: '480px',    // Mobile
-        md: '820px',    // Tablet
+        md: '800px',    // Tablet
         lg: '1024px',   // Laptop
         xl: '1280px',   // Desktop
     },

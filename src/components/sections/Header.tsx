@@ -6,6 +6,7 @@ import {
     Burger,
     useMantineTheme,
     Group,
+    Container
 } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import ImageLink from '@/components/elements/ImageLink';
@@ -13,11 +14,11 @@ import MenuDesk from '../blocks/MenuDesk';
 
 function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
     const theme = useMantineTheme();
-    const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
+    const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.lg})`);
 
     return (
         <AppShell.Header
-            p={{ base: 10, lg: 15, xl: 20 }}
+            p={{ base: 10, sm: 20, md: 20, lg: 20, xl: 20 }}
             withBorder={false}
             style={(theme) => ({
                 height: 'auto',
@@ -27,20 +28,17 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
                 alignItems: 'center',
                 justifyItems: 'center',
                 justifyContent: 'space-between',
-                zIndex: 110,
-                position: 'fixed',
-                top: 0,
-                left: 0,
+                // zIndex: 110,
             })}
         >
-            <Group
+            <Container
+                size="xl"
                 style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyItems: 'center',
                     justifyContent: 'space-between',
                     width: '100%',
-                    height: '100%',
                 }}
             >
                 <ImageLink
@@ -59,7 +57,7 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
                     size="sm"
                     color={theme.colors.blue[1]}
                 />
-            </Group>
+            </Container>
         </AppShell.Header>
     )
 }

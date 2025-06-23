@@ -1,9 +1,21 @@
 import type { MDXComponents } from 'mdx/types'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
+
     return {
         h1: ({ children }) => (
-            <h1 style={{ color: 'red', fontSize: '48px', marginTop: '48px' }}>{children}</h1>
+            <h1 style={
+                { color: 'red', fontSize: '48px', marginTop: '48px' }}
+            >
+                {children}
+            </h1>
+        ),
+        h2: ({ children }) => (
+            <h2 style={
+                { color: 'gray', fontSize: '24px', marginTop: '24px' }}
+            >
+                {children}
+            </h2>
         ),
         ...components,
     }
