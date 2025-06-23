@@ -15,13 +15,13 @@ function AppLayout({ children }: { children: React.ReactNode }) {
         <AppShell
             transitionDuration={500}
             transitionTimingFunction="ease"
-            padding={{ base: 10, lg: 15, xl: 20 }}
+            padding={{ base: 20 }}
             layout='alt'
             style={(theme) => ({
                 backgroundColor: theme.colors.terracota[8],
             })}
             header={{
-                height: { base: 60, sm: 80, xl: 80 },
+                height: { base: 60, sm: 60, md: 60, lg: 60, xl: 60 },
                 offset: true,
                 collapsed: !pinned,
             }}
@@ -43,7 +43,7 @@ function AppLayout({ children }: { children: React.ReactNode }) {
                     boxShadow: theme.shadows.sm,
                 })}
             >
-                <Container fluid style={{ height: '100%' }}>
+                <Container size="xl">
                     {children}
                 </Container>
             </AppShell.Main>

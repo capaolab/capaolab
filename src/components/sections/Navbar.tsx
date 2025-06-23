@@ -2,9 +2,11 @@ import {
     AppShell,
     useMantineTheme,
     Box,
-    Title,
-    Overlay
+    Overlay,
+    Anchor,
 } from '@mantine/core';
+import { navLinksContent } from '@/content/navigation';
+import classes from './nav.module.css';
 
 
 function Navbar() {
@@ -21,17 +23,35 @@ function Navbar() {
                     color: theme.white,
                     display: 'flex',
                     flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    alignItems: 'start',
+                    justifyContent: 'start',
                     zIndex: 100,
                 })}
         >
             <Box style={{
+                width: "100%",
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'start',
+                justifyItems: 'start',
+                justifyContent: 'start',
                 zIndex: 110,
+                marginTop: 60
             }}>
-                <Title order={3}>NavBar</Title>
+                {navLinksContent.map((link) => (
+                    <Anchor
+                        key={link.label}
+                        href={link.link}
+                        // c="inherit"
+                        fw="bold"
+                        fz="xl"
+                        className={classes.control}
+                    >
+                        {link.label}
+                    </Anchor>
+                ))}
             </Box>
-            <Overlay color={theme.colors.gray[6]} backgroundOpacity={0.35} blur={10} zIndex={100} />
+            <Overlay color={theme.colors.terracota[9]} backgroundOpacity={0.75} blur={10} zIndex={100} />
         </AppShell.Navbar>
     );
 }
