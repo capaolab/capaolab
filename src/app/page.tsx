@@ -12,14 +12,14 @@ export default function Home() {
     return (
         <Flex
             gap={{ sm: 10, md: 100, lg: 100, xl: 100 }}
-            direction={mediaQuery ? 'column' : 'row'}
+            direction={mediaQuery ? 'row' : 'column'}
             justify="flex-start"
             align="flex-start"
         >
             <CallAction />
             <Box
                 mt={{ base: 60 }}
-                hiddenFrom='sm'
+                hiddenFrom='md'
             >
                 <CardHome />
             </Box>

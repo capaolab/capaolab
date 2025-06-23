@@ -1,13 +1,20 @@
 'use client';
 
 import '@mantine/core/styles.css';
-import { createTheme } from '@mantine/core';
+import { createTheme, Container, rem } from '@mantine/core';
 import { terracota, folha } from './colors';
+
+const CONTAINER_SIZES: Record<string, number> = {
+    sm: 360,
+    md: 768,
+    lg: 1024,
+    xl: 1280,
+};
 
 const theme = createTheme({
     breakpoints: {
-        sm: '480px',    // Mobile
-        md: '800px',    // Tablet
+        sm: '360px',    // Mobile
+        md: '768px',    // Tablet
         lg: '1024px',   // Laptop
         xl: '1280px',   // Desktop
     },
@@ -60,6 +67,17 @@ const theme = createTheme({
     },
 
     components: {
+        Container: Container.extend({
+            vars: (_, { size, fluid }) => ({
+                root: {
+                    '--container-size': fluid
+                        ? '100%'
+                        : size !== undefined && size in CONTAINER_SIZES
+                            ? rem(CONTAINER_SIZES[size])
+                            : rem(size),
+                },
+            }),
+        }),
         Button: {
             defaultProps: {
                 variant: 'filled',

@@ -5,7 +5,6 @@ import {
     AppShell,
     Burger,
     useMantineTheme,
-    Group,
     Container
 } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
@@ -14,11 +13,10 @@ import MenuDesk from '../blocks/MenuDesk';
 
 function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
     const theme = useMantineTheme();
-    const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.lg})`);
-
+    const mediaQuery = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
     return (
         <AppShell.Header
-            p={{ base: 10, sm: 20, md: 20, lg: 20, xl: 20 }}
+            p={{ base: 10, sm: 10, md: 20, lg: 20, xl: 20 }}
             withBorder={false}
             style={(theme) => ({
                 height: 'auto',
@@ -28,11 +26,14 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
                 alignItems: 'center',
                 justifyItems: 'center',
                 justifyContent: 'space-between',
-                // zIndex: 110,
+                zIndex: 110,
+                position: 'fixed',
+                top: 0,
+                left: 0,
             })}
         >
             <Container
-                size="xl"
+                size={mediaQuery ? 'xl' : 'lg'}
                 style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -43,9 +44,9 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
             >
                 <ImageLink
                     url="/"
-                    src={mediaQuery ? '/img/cl-logo.jpeg' : '/img/logotipo.png'}
+                    src={mediaQuery ? '/img/logotipo.png' : '/img/cl-logo.jpeg'}
                     alt="Capão Lab Logo"
-                    width={mediaQuery ? 40 : 200}
+                    width={mediaQuery ? 200 : 40}
                     height={mediaQuery ? 40 : 40}
                 />
                 <MenuDesk />

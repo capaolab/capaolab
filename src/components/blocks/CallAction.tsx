@@ -11,19 +11,18 @@ import { useMediaQuery } from '@mantine/hooks';
 export default function CallAction() {
     const [opened, { open, close }] = useDisclosure(false);
     const theme = useMantineTheme();
-    const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.lg})`);
+    const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
 
     return (
         <Flex
-            mr={{ xl: 100 }}
-            gap={{ base: 10, md: 100, lg: 100, xl: 20 }}
+            gap={{ base: 10, sm: 40, md: 60, lg: 100, xl: 100 }}
             direction={mediaQuery ? 'column' : 'row'}
             justify="flex-start"
             align="flex-start"
         >
             <Box
-                w="100%"
-                mt={{ base: 20, lg: 10, xl: 60 }}
+                w={`${mediaQuery ? '100%' : '60%'}`}
+                mt={{ base: 20, sm: 20, md: 40, lg: 40, xl: 60 }}
             >
                 <Title
                     order={1}
@@ -46,11 +45,11 @@ export default function CallAction() {
                 </Button>
             </Box>
             <Image
-                mt={{ base: 10, lg: 10, xl: 10 }}
+                mt={{ base: 20, sm: 20, md: 40, lg: 40, xl: 60 }}
                 src="/svg/principal.svg"
                 alt=""
                 radius="md"
-                w={`${mediaQuery ? '100%' : '50%'}`}
+                w={`${mediaQuery ? '100%' : '40%'}`}
             />
         </Flex>
     );

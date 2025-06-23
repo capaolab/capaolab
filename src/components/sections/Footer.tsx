@@ -1,11 +1,9 @@
 import React from 'react'
-import { useMediaQuery } from '@mantine/hooks';
-import { useMantineTheme, AppShell, Box, Text, Anchor } from '@mantine/core';
+import { AppShell, Box, Text, Anchor } from '@mantine/core';
 import ImageLink from '@/components/elements/ImageLink';
+import { IconMail } from '@tabler/icons-react';
 
 function Footer() {
-    const theme = useMantineTheme();
-    const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
 
     return (
         <AppShell.Footer
@@ -16,7 +14,7 @@ function Footer() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'start',
-                justifyItems: 'center',
+                justifyItems: 'start',
                 position: 'relative',
                 zIndex: 0,
             })}
@@ -26,16 +24,24 @@ function Footer() {
                     url="/"
                     src="/svg/cl-logo.svg"
                     alt="Capão Lab Logo"
-                    width={mediaQuery ? 40 : 200}
-                    height={mediaQuery ? 40 : 40}
+                    width={40}
+                    height={40}
                 />
             </Box>
             <Box pl={20}>
-                <Anchor href="mailto:accounts@capaolab.com.br" target="_blank">
-                    accounts@capaolab.com.br
+                <Anchor
+                    href="mailto:accounts@capaolab.com.br"
+                    target="_blank"
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 10
+                    }}
+                >
+                    <IconMail size={20} /> accounts@capaolab.com.br
                 </Anchor>
                 <Text size="sm" mt={10}>
-                    2023 © Capaolab - Todos direitos reservados
+                    © Capaolab - Todos direitos reservados
                 </Text>
             </Box>
         </AppShell.Footer>
