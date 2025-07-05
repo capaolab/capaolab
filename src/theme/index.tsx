@@ -9,6 +9,7 @@ const CONTAINER_SIZES: Record<string, number> = {
     md: 768,
     lg: 1024,
     xl: 1280,
+    xxl: 1600,
 };
 
 const theme = createTheme({
@@ -25,7 +26,7 @@ const theme = createTheme({
         sm: '14px',
         md: '16px',
         lg: '18px',
-        xl: '20px',
+        xl: '22px',
         axl: '26px',
         bxl: '30px',
         cxl: '36px',
@@ -44,7 +45,6 @@ const theme = createTheme({
     },
     headings: {
         fontFamily: 'Manrope, sans-serif',
-        fontWeight: '600',
         sizes: {
             h1: {
                 fontWeight: '700',
@@ -53,7 +53,7 @@ const theme = createTheme({
                 fontWeight: '500',
             },
             h3: {
-                fontWeight: '300',
+                fontWeight: '400',
             },
             h4: {
                 fontWeight: '300',
@@ -81,9 +81,9 @@ const theme = createTheme({
         Button: {
             defaultProps: {
                 variant: 'filled',
-                size: 'md',
+                size: 'lg',
                 radius: 'md',
-                color: 'folha.7',
+                color: 'terracota.8',
 
             },
         },

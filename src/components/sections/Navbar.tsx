@@ -36,13 +36,12 @@ function Navbar() {
                 justifyItems: 'start',
                 justifyContent: 'start',
                 zIndex: 110,
-                marginTop: 60
+                marginTop: 50
             }}>
                 {navLinksContent.map((link) => (
                     <Anchor
                         key={link.label}
                         href={link.link}
-                        // c="inherit"
                         fw="bold"
                         fz="xl"
                         className={classes.control}
@@ -51,7 +50,7 @@ function Navbar() {
                     </Anchor>
                 ))}
             </Box>
-            <Overlay color={theme.colors.terracota[9]} backgroundOpacity={0.75} blur={10} zIndex={100} />
+            <Overlay color={theme.colors.gray[1]} backgroundOpacity={0.75} blur={15} zIndex={100} />
         </AppShell.Navbar>
     );
 }

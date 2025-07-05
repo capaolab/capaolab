@@ -11,7 +11,7 @@ function CardHome() {
             component='article'
             c={theme.colors.gray[9]}
             style={(theme) => ({
-                backgroundColor: theme.colors.terracota[1],
+                backgroundColor: theme.colors.gray[8],
             })}
         >
             <Text size="xl" fw="500" fs='italic' td="underline">Forum de IA</Text>

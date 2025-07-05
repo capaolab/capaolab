@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react'
-import { AppShell, Container } from '@mantine/core';
-import { useDisclosure, useHeadroom } from '@mantine/hooks';
+import { AppShell, Container, useMantineTheme } from '@mantine/core';
+import { useDisclosure, useHeadroom, useMediaQuery } from '@mantine/hooks';
 import Header from '@/components/sections/Header';
 import Footer from './sections/Footer';
 import Navbar from './sections/Navbar';
@@ -10,6 +10,8 @@ import Navbar from './sections/Navbar';
 function AppLayout({ children }: { children: React.ReactNode }) {
     const [opened, { toggle }] = useDisclosure(false);
     const pinned = useHeadroom({ fixedAt: 120 });
+    const theme = useMantineTheme();
+    const mediaQuery = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
 
     return (
         <AppShell
@@ -17,9 +19,6 @@ function AppLayout({ children }: { children: React.ReactNode }) {
             transitionTimingFunction="ease"
             padding={{ base: 20 }}
             layout='alt'
-            style={(theme) => ({
-                backgroundColor: theme.colors.terracota[8],
-            })}
             header={{
                 height: { base: 60, sm: 60, md: 60, lg: 60, xl: 60 },
                 offset: true,
@@ -38,12 +37,12 @@ function AppLayout({ children }: { children: React.ReactNode }) {
             <Navbar />
             <AppShell.Main
                 style={(theme) => ({
-                    backgroundColor: theme.colors.terracota[8],
-                    color: theme.white,
-                    boxShadow: theme.shadows.sm,
+                    backgroundColor: theme.white,
+                    color: theme.colors.gray[9],
+                    boxShadow: theme.shadows.lg,
                 })}
             >
-                <Container size="xl">
+                <Container size={mediaQuery ? 'xxl' : 'lg'}>
                     {children}
                 </Container>
             </AppShell.Main>

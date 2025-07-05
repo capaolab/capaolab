@@ -16,12 +16,12 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
     const mediaQuery = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
     return (
         <AppShell.Header
-            p={{ base: 10, sm: 10, md: 20, lg: 20, xl: 20 }}
+            py={{ base: 10, sm: 10, md: 20, lg: 20, xl: 20 }}
             withBorder={false}
             style={(theme) => ({
                 height: 'auto',
-                backgroundColor: theme.colors.terracota[8],
-                color: theme.white,
+                backgroundColor: theme.white,
+                color: theme.black,
                 display: 'flex',
                 alignItems: 'center',
                 justifyItems: 'center',
@@ -33,7 +33,7 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
             })}
         >
             <Container
-                size={mediaQuery ? 'xl' : 'lg'}
+                size={mediaQuery ? 'xxl' : 'lg'}
                 style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -44,19 +44,19 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
             >
                 <ImageLink
                     url="/"
-                    src={mediaQuery ? '/img/logotipo.png' : '/img/cl-logo.jpeg'}
+                    src={mediaQuery ? '/img/logotipo.png' : '/svg/cl-terracota.svg'}
                     alt="Capão Lab Logo"
-                    width={mediaQuery ? 200 : 40}
-                    height={mediaQuery ? 40 : 40}
+                    width={mediaQuery ? 200 : 30}
+                    height={mediaQuery ? 30 : 30}
                 />
                 <MenuDesk />
                 <Burger
                     opened={opened}
-                    variant="outline"
+                    variant="filled"
                     onClick={toggle}
                     hiddenFrom="md"
                     size="sm"
-                    color={theme.colors.blue[1]}
+                    color={theme.colors.terracota[8]}
                 />
             </Container>
         </AppShell.Header>

@@ -19,25 +19,27 @@ export default function CallAction() {
             direction={mediaQuery ? 'column' : 'row'}
             justify="flex-start"
             align="flex-start"
+            color='black'
         >
             <Box
-                w={`${mediaQuery ? '100%' : '60%'}`}
+                w={`${mediaQuery ? '100%' : '40%'}`}
                 mt={{ base: 20, sm: 20, md: 40, lg: 40, xl: 60 }}
             >
                 <Title
                     order={1}
-                    fz={{ sm: 'axl', md: 'cxl', lg: 'cxl', xl: 'dxl' }}
+                    fz={{ sm: 'axl', md: 'cxl', lg: 'cxl', xl: 'exl' }}
                 >
-                    Use IA para impulsionar o seu negócio
+                    Desenvolvimento de soluções personalizadas
                 </Title>
                 <Title
                     order={3}
                     mt={10}
+                    fw={300}
                     fz={{ sm: 'md', md: 'xl', lg: 'xl', xl: 'xl' }}
+                    lh={{ sm: '1.5', md: '1.75', lg: '1.75', xl: '1.75' }}
                 >
-                    Capao Lab é uma software house especializada inovação.
-                    Nosso principal foco é o desenvolvimento de soluções inteligentes
-                    para ajudar pequenos e medios negócios.
+                    A Capão Lab é uma soft house que desenvolve soluções sob demanda, específicas para cada negócio.
+                    Nossa abordagem eficaz permite a comunicação, colaboração e criação de forma integrada.
                 </Title>
                 <ContactModalForm opened={opened} close={close} />
                 <Button onClick={open} mt={30} autoContrast>
@@ -50,6 +52,7 @@ export default function CallAction() {
                 alt=""
                 radius="md"
                 w={`${mediaQuery ? '100%' : '40%'}`}
+                
             />
         </Flex>
     );

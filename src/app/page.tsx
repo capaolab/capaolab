@@ -11,6 +11,7 @@ export default function Home() {
     const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
     return (
         <Flex
+            id='home'
             gap={{ sm: 10, md: 100, lg: 100, xl: 100 }}
             direction={mediaQuery ? 'row' : 'column'}
             justify="flex-start"

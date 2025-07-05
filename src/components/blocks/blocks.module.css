@@ -1,0 +1,13 @@
+.navLink {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: auto;
+    height: auto;
+    padding-right: 16px;
+}
+.navLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: cyan;
+}
