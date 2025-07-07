@@ -6,6 +6,7 @@ import { useDisclosure } from '@mantine/hooks';
 import ContactModalForm from '../forms/ContactModalForm';
 import { Image, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import { title1, title3 } from '@/theme/typoghaphy';
 
 
 export default function CallAction() {
@@ -27,27 +28,32 @@ export default function CallAction() {
             >
                 <Title
                     order={1}
-                    fz={{ sm: 'axl', md: 'cxl', lg: 'cxl', xl: 'exl' }}
+                    fz={title1.fontSize}
                 >
                     Desenvolvimento de soluções personalizadas
                 </Title>
                 <Title
                     order={3}
-                    mt={10}
+                    mt={{ base: 20, sm: 20, md: 10, lg: 10, xl: 10 }}
                     fw={300}
-                    fz={{ sm: 'md', md: 'xl', lg: 'xl', xl: 'xl' }}
-                    lh={{ sm: '1.5', md: '1.75', lg: '1.75', xl: '1.75' }}
+                    fz={title3.fontSize}
+                    lh={title3.lineHeight}
                 >
                     A Capão Lab é uma soft house que desenvolve soluções sob demanda, específicas para cada negócio.
                     Nossa abordagem eficaz permite a comunicação, colaboração e criação de forma integrada.
                 </Title>
                 <ContactModalForm opened={opened} close={close} />
-                <Button onClick={open} mt={30} autoContrast>
+                <Button
+                    onClick={open}
+                    size={mediaQuery ? 'sm' : 'lg'}
+                    mt={30}
+                    autoContrast
+                >
                     Saiba mais
                 </Button>
             </Box>
             <Image
-                mt={{ base: 20, sm: 20, md: 40, lg: 40, xl: 60 }}
+                mt={{ base: 0, sm: 20, md: 40, lg: 40, xl: 60 }}
                 src="/svg/banner.svg"
                 alt=""
                 radius="md"

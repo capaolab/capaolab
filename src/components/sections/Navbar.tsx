@@ -6,6 +6,8 @@ import {
     Anchor,
 } from '@mantine/core';
 import { navLinksContent } from '@/content/navigation';
+import { navLink } from '@/theme/typoghaphy';
+
 import classes from './sections.module.css';
 
 
@@ -43,7 +45,7 @@ function Navbar() {
                         key={link.label}
                         href={link.link}
                         fw="bold"
-                        fz="xl"
+                        fz={navLink.fontSize}
                         className={classes.control}
                     >
                         {link.label}

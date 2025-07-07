@@ -1,6 +1,6 @@
 import { Text, Paper, Button } from '@mantine/core';
 import { useMantineTheme } from '@mantine/core';
-function CardHome() {
+function CardBusiness() {
     const theme = useMantineTheme();
     return (
         <Paper
@@ -23,4 +23,4 @@ function CardHome() {
     );
 }
 
-export default CardHome;
+export default CardBusiness;

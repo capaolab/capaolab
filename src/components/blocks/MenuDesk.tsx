@@ -1,5 +1,7 @@
 import { Anchor, Group } from "@mantine/core";
 import { navLinksContent } from "@/content/navigation";
+import { navLink } from "@/theme/typoghaphy";
+
 import classes from "./blocks.module.css";
 function MenuDesk() {
     return (
@@ -19,7 +21,7 @@ function MenuDesk() {
                     key={link.label}
                     href={link.link}
                     fw="400"
-                    fz="xl"
+                    fz={navLink.fontSize}
                     c={"inherit"}
                     className={classes.navLink}
                 >

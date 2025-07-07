@@ -11,7 +11,7 @@ import {
     Image
 } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-// import ImageLink from '@/components/elements/ImageLink';
+import { marginX } from '@/theme/layout';
 import MenuDesk from '../blocks/MenuDesk';
 import classes from './sections.module.css';
 
@@ -45,11 +45,12 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
                     justifyContent: 'space-between',
                     width: '100%',
                 }}
+                mx={marginX}
             >
                 <Link href="/" className={classes.imageLink}>
                     <Image
                         component={NextImage}
-                        src={mediaQuery ? '/svg/logotipo.svg' : '/svg/cl-terracota.svg'}
+                        src={mediaQuery ? '/svg/logotipo_terracota.svg' : '/svg/cl-terracota.svg'}
                         alt="Capão Lab Logo"
                         width={mediaQuery ? 160 : 30}
                         height={mediaQuery ? 40 : 30}

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react'
-import { AppShell, useMantineTheme } from '@mantine/core';
+import { AppShell, useMantineTheme, Box } from '@mantine/core';
 import { useDisclosure, useHeadroom } from '@mantine/hooks';
 import Header from '@/components/sections/Header';
 import Footer from './sections/Footer';
@@ -22,6 +22,7 @@ function AppLayout({ children }: { children: React.ReactNode }) {
                 height: { base: 60, sm: 60, md: 60, lg: 60, xl: 60 },
                 offset: true,
                 collapsed: !pinned,
+
             }}
             navbar={{
                 width: '100%',
@@ -32,7 +33,11 @@ function AppLayout({ children }: { children: React.ReactNode }) {
                 height: { base: 200, sm: 300, mg: 500 },
             }}
         >
-            <Header opened={opened} toggle={toggle} />
+            <Box></Box>
+            <Header
+                opened={opened}
+                toggle={toggle}
+            />
             <Navbar />
             <AppShell.Main
                 bg={theme.white}

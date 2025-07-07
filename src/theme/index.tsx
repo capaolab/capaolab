@@ -14,7 +14,7 @@ const CONTAINER_SIZES: Record<string, number> = {
 
 const theme = createTheme({
     breakpoints: {
-        sm: '360px',    // Mobile
+        sm: '400px',    // Mobile
         md: '768px',    // Tablet
         lg: '1024px',   // Laptop
         xl: '1280px',   // Desktop
