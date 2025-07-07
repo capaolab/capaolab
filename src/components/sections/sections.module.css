@@ -1,0 +1,19 @@
+.control {
+    width: 100%;
+    display: block;
+    padding: var(--mantine-spacing-md);
+    color: var(--mantine-color-terracota-8);
+}
+.control:hover {
+    background-color: var(--mantine-color-terracota-8);
+    color: var(--mantine-color-terracota-1);
+    opacity: 0.9;
+    text-decoration: underline;
+} 
+.imageLink {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: auto;
+    height: auto;
+}

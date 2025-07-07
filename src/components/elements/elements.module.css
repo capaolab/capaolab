@@ -5,15 +5,3 @@
     width: auto;
     height: auto;
 }
-.navLink {
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    width: auto;
-    height: auto;
-}
-.navLink:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    color: cyan;
-}

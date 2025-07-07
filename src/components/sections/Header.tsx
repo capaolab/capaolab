@@ -1,27 +1,31 @@
 'use client';
 
 import React from 'react';
+import Link from "next/link";
+import NextImage from 'next/image';
 import {
     AppShell,
     Burger,
     useMantineTheme,
-    Container
+    Container,
+    Image
 } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import ImageLink from '@/components/elements/ImageLink';
+import { marginX } from '@/theme/layout';
 import MenuDesk from '../blocks/MenuDesk';
+import classes from './sections.module.css';
 
 function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
     const theme = useMantineTheme();
     const mediaQuery = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
     return (
         <AppShell.Header
-            p={{ base: 10, sm: 10, md: 20, lg: 20, xl: 20 }}
+            py={{ base: 10, sm: 10, md: 20, lg: 20, xl: 20 }}
             withBorder={false}
             style={(theme) => ({
                 height: 'auto',
-                backgroundColor: theme.colors.terracota[8],
-                color: theme.white,
+                backgroundColor: theme.white,
+                color: theme.black,
                 display: 'flex',
                 alignItems: 'center',
                 justifyItems: 'center',
@@ -33,7 +37,7 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
             })}
         >
             <Container
-                size={mediaQuery ? 'xl' : 'lg'}
+                size={mediaQuery ? 'xxl' : 'lg'}
                 style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -41,22 +45,26 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
                     justifyContent: 'space-between',
                     width: '100%',
                 }}
+                mx={marginX}
             >
-                <ImageLink
-                    url="/"
-                    src={mediaQuery ? '/img/logotipo.png' : '/img/cl-logo.jpeg'}
-                    alt="Capão Lab Logo"
-                    width={mediaQuery ? 200 : 40}
-                    height={mediaQuery ? 40 : 40}
-                />
+                <Link href="/" className={classes.imageLink}>
+                    <Image
+                        component={NextImage}
+                        src={mediaQuery ? '/svg/logotipo_terracota.svg' : '/svg/cl-terracota.svg'}
+                        alt="Capão Lab Logo"
+                        width={mediaQuery ? 160 : 30}
+                        height={mediaQuery ? 40 : 30}
+                    />
+                </Link>
+
                 <MenuDesk />
                 <Burger
                     opened={opened}
-                    variant="outline"
+                    variant="filled"
                     onClick={toggle}
                     hiddenFrom="md"
                     size="sm"
-                    color={theme.colors.blue[1]}
+                    color={theme.colors.terracota[8]}
                 />
             </Container>
         </AppShell.Header>

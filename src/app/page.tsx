@@ -1,28 +1,22 @@
 'use client';
 
 import React from 'react';
-import CallAction from '@/components/blocks/CallAction';
-import CardHome from '@/components/blocks/CardHome';
-import { Flex, Box, useMantineTheme } from '@mantine/core';
+import { Box, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-
+import Banner from '@/components/blocks/Banner';
+import Missao from '@/components/blocks/Missao';
+import Compromisso from '@/components/blocks/Compromisso';
 export default function Home() {
     const theme = useMantineTheme();
     const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+    const containerQuery = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
     return (
-        <Flex
-            gap={{ sm: 10, md: 100, lg: 100, xl: 100 }}
-            direction={mediaQuery ? 'row' : 'column'}
-            justify="flex-start"
-            align="flex-start"
+        <Box
+            component='div'
         >
-            <CallAction />
-            <Box
-                mt={{ base: 60 }}
-                hiddenFrom='md'
-            >
-                <CardHome />
-            </Box>
-        </Flex>
+            <Banner mediaQuery={mediaQuery} containerQuery={containerQuery} />
+            <Missao mediaQuery={mediaQuery} containerQuery={containerQuery} />
+            <Compromisso mediaQuery={mediaQuery} containerQuery={containerQuery} />
+        </Box>
     );
 }

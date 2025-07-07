@@ -1,6 +1,8 @@
-import { Group } from "@mantine/core";
-import LinkNav from "../elements/LinkNav";
+import { Anchor, Group } from "@mantine/core";
 import { navLinksContent } from "@/content/navigation";
+import { navLink } from "@/theme/typoghaphy";
+
+import classes from "./blocks.module.css";
 function MenuDesk() {
     return (
         <Group
@@ -11,10 +13,20 @@ function MenuDesk() {
                 alignItems: 'center',
                 justifyItems: 'center',
                 justifyContent: 'end',
+                paddingRight: 20
             }}
         >
             {navLinksContent.map((link) => (
-                <LinkNav key={link.label} label={link.label} link={link.link} />
+                <Anchor
+                    key={link.label}
+                    href={link.link}
+                    fw="400"
+                    fz={navLink.fontSize}
+                    c={"inherit"}
+                    className={classes.navLink}
+                >
+                    {link.label}
+                </Anchor>
             ))}
         </Group>
     );
