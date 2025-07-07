@@ -11,18 +11,18 @@ import {
     Image
 } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import { marginX } from '@/theme/layout';
 import MenuDesk from '../blocks/MenuDesk';
 import classes from './sections.module.css';
 
 function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
     const theme = useMantineTheme();
-    const mediaQuery = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
+    const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
     return (
         <AppShell.Header
             py={{ base: 10, sm: 10, md: 20, lg: 20, xl: 20 }}
             withBorder={false}
             style={(theme) => ({
+                width: '100%',
                 height: 'auto',
                 backgroundColor: theme.white,
                 color: theme.black,
@@ -37,7 +37,7 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
             })}
         >
             <Container
-                size={mediaQuery ? 'xxl' : 'lg'}
+                size={mediaQuery ? 'lg' : 'xxl'}
                 style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -45,24 +45,22 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
                     justifyContent: 'space-between',
                     width: '100%',
                 }}
-                mx={marginX}
             >
-                <Link href="/" className={classes.imageLink}>
+                <Link  href="/" className={classes.imageLink}>
                     <Image
                         component={NextImage}
-                        src={mediaQuery ? '/svg/logotipo_terracota.svg' : '/svg/cl-terracota.svg'}
+                        src={mediaQuery ? '/svg/cl-terracota.svg' : '/svg/logotipo_terracota.svg'}
                         alt="Capão Lab Logo"
-                        width={mediaQuery ? 160 : 30}
-                        height={mediaQuery ? 40 : 30}
+                        width={mediaQuery ? 30 : 160}
+                        height={mediaQuery ? 30 : 40}
                     />
                 </Link>
-
                 <MenuDesk />
                 <Burger
                     opened={opened}
                     variant="filled"
                     onClick={toggle}
-                    hiddenFrom="md"
+                    hiddenFrom="lg"
                     size="sm"
                     color={theme.colors.terracota[8]}
                 />

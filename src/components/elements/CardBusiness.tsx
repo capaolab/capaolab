@@ -1,25 +1,48 @@
-import { Text, Paper, Button } from '@mantine/core';
+import { Text, Paper, Title, Box, Image } from '@mantine/core';
 import { useMantineTheme } from '@mantine/core';
-function CardBusiness() {
+import { title2 } from '@/theme/typoghaphy';
+
+interface CardBusinessProps {
+    id: string
+    title: string
+    content: string
+}
+function CardBusiness({ title, content, id}: CardBusinessProps) {
     const theme = useMantineTheme();
     return (
-        <Paper
-            shadow='xl'
-            radius="md"
-            p="md"
-            mt={80}
-            component='article'
-            c={theme.colors.gray[9]}
-            style={(theme) => ({
-                backgroundColor: theme.colors.gray[8],
-            })}
-        >
-            <Text size="xl" fw="500" fs='italic' td="underline">Forum de IA</Text>
+        <Box>
+            <Paper
+                shadow='md'
+                radius="lg"
+                p="md"
+                mt={80}
+                component='article'
+                c={theme.colors.gray[9]}
+                style={(theme) => ({
+                    backgroundColor: theme.colors.gray[2],
+                })}
+            >
+                <Image
+                    fit='contain'
+                    src={`/svg/card-business/card-${id}.svg`}
+                    alt={title}
+                    width={278}
+                    height={312}
+                    p={20}
+                />
+            </Paper>
+            <Title
+                w={'80%'}
+                mt={40}
+                order={2}
+                fz={title2.fontSize}
+            >
+                {title}
+            </Title>
             <Text mt={10} size="lg" fw="400" lh={theme.lineHeights.md}>
-                Projeto que visa impulsionar o uso da Inteligência Artificial em empresas.
+                {content}
             </Text>
-            <Button color={theme.colors.gray[7]} mt={20}>Saiba mais</Button>
-        </Paper>
+        </Box>
     );
 }
 

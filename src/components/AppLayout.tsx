@@ -22,11 +22,10 @@ function AppLayout({ children }: { children: React.ReactNode }) {
                 height: { base: 60, sm: 60, md: 60, lg: 60, xl: 60 },
                 offset: true,
                 collapsed: !pinned,
-
             }}
             navbar={{
                 width: '100%',
-                breakpoint: 'md',
+                breakpoint: 'lg',
                 collapsed: { mobile: !opened, desktop: true },
             }}
             footer={{
