@@ -10,3 +10,10 @@
     opacity: 0.9;
     text-decoration: underline;
 } 
+.imageLink {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: auto;
+    height: auto;
+}

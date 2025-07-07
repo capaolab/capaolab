@@ -15,7 +15,7 @@ export default function CallAction() {
 
     return (
         <Flex
-            gap={{ base: 10, sm: 40, md: 60, lg: 100, xl: 100 }}
+            gap={{ base: 10, sm: 40, md: 60, lg: 100, xl: 250 }}
             direction={mediaQuery ? 'column' : 'row'}
             justify="flex-start"
             align="flex-start"
@@ -48,11 +48,10 @@ export default function CallAction() {
             </Box>
             <Image
                 mt={{ base: 20, sm: 20, md: 40, lg: 40, xl: 60 }}
-                src="/svg/principal.svg"
+                src="/svg/banner.svg"
                 alt=""
                 radius="md"
                 w={`${mediaQuery ? '100%' : '40%'}`}
-                
             />
         </Flex>
     );

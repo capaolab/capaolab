@@ -83,7 +83,7 @@ const theme = createTheme({
                 variant: 'filled',
                 size: 'lg',
                 radius: 'md',
-                color: 'terracota.8',
+                color: 'terracota.7',
 
             },
         },

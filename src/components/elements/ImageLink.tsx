@@ -2,6 +2,7 @@ import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
 import classes from "./elements.module.css";
+import { useMantineTheme } from '@mantine/core';
 
 interface ImageLinkProps {
   src: string;
@@ -12,6 +13,7 @@ interface ImageLinkProps {
 }
 
 function ImageLink({ src, url, alt, width, height }: ImageLinkProps) {
+    const theme = useMantineTheme();
   return (
     <Link href={url} className={classes.imageLink}>
       <Image
@@ -19,6 +21,7 @@ function ImageLink({ src, url, alt, width, height }: ImageLinkProps) {
         alt={alt}
         width={width}
         height={height}
+        color={theme.colors.gray[9]}
       />
     </Link>
   )

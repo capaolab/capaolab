@@ -6,7 +6,7 @@ import {
     Anchor,
 } from '@mantine/core';
 import { navLinksContent } from '@/content/navigation';
-import classes from './nav.module.css';
+import classes from './sections.module.css';
 
 
 function Navbar() {

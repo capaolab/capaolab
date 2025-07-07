@@ -1,15 +1,19 @@
 'use client';
 
 import React from 'react';
+import Link from "next/link";
+import NextImage from 'next/image';
 import {
     AppShell,
     Burger,
     useMantineTheme,
-    Container
+    Container,
+    Image
 } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import ImageLink from '@/components/elements/ImageLink';
+// import ImageLink from '@/components/elements/ImageLink';
 import MenuDesk from '../blocks/MenuDesk';
+import classes from './sections.module.css';
 
 function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
     const theme = useMantineTheme();
@@ -42,13 +46,16 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
                     width: '100%',
                 }}
             >
-                <ImageLink
-                    url="/"
-                    src={mediaQuery ? '/img/logotipo.png' : '/svg/cl-terracota.svg'}
-                    alt="Capão Lab Logo"
-                    width={mediaQuery ? 200 : 30}
-                    height={mediaQuery ? 30 : 30}
-                />
+                <Link href="/" className={classes.imageLink}>
+                    <Image
+                        component={NextImage}
+                        src={mediaQuery ? '/svg/logotipo.svg' : '/svg/cl-terracota.svg'}
+                        alt="Capão Lab Logo"
+                        width={mediaQuery ? 160 : 30}
+                        height={mediaQuery ? 40 : 30}
+                    />
+                </Link>
+
                 <MenuDesk />
                 <Burger
                     opened={opened}
