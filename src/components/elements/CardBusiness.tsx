@@ -6,8 +6,9 @@ interface CardBusinessProps {
     id: string
     title: string
     content: string
+    mediaQuery?: boolean
 }
-function CardBusiness({ title, content, id}: CardBusinessProps) {
+function CardBusiness({ title, content, id, mediaQuery}: CardBusinessProps) {
     const theme = useMantineTheme();
     return (
         <Box>
@@ -26,9 +27,9 @@ function CardBusiness({ title, content, id}: CardBusinessProps) {
                     fit='contain'
                     src={`/svg/card-business/card-${id}.svg`}
                     alt={title}
-                    width={278}
-                    height={312}
-                    p={20}
+                    w={ mediaQuery ?  140 : 278}
+                    h={mediaQuery ?  160 : 312}
+                    p={mediaQuery ?  5 : 10}
                 />
             </Paper>
             <Title

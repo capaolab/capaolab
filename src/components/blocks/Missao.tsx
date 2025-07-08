@@ -33,16 +33,17 @@ function Missao({ containerQuery, mediaQuery }: MissaoProps) {
                     h={'100%'}
                 >
                     <Title
+                        w={{ base: '100%', sm: '100%', md: '50%', lg: '50%', xl: '50%' }}
                         order={2}
                         fz={title2.fontSize}
                     >
                         Desenvolvimento de soluções personalizadas
                     </Title>
                     <Text
-                        w={{ base: '100%', md: '50%' }}
+                        w={{ base: '100%', sm: '100%', md: '50%', lg: '50%', xl: '50%' }}
                         fz={normalText.fontSize}
                         fw={normalText.fontWeight}
-                        mt={{ base: 60, md: 0 }}
+                        // mt={{ base: 60, md: 0 }}
                     >
                         Somos especialistas em desenvolver softwares e soluções tecnológicas personalizadas
                         para atender às necessidades específicas de cada cliente. Nossa missão é impulsionar

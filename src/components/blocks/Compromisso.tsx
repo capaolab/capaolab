@@ -8,7 +8,7 @@ interface MissaoProps {
     mediaQuery?: boolean;
 }
 
-function Compromisso({ containerQuery }: MissaoProps) {
+function Compromisso({ containerQuery, mediaQuery }: MissaoProps) {
     return (
         <Container
             component='section'
@@ -17,7 +17,7 @@ function Compromisso({ containerQuery }: MissaoProps) {
             h={'100%'}
         >
             <Flex
-                w={'60%'}
+                w={mediaQuery ? '100%' : '60%'}
                 gap={{ base: 0, sm: 20, md: 20, lg: 20, xl: 20 }}
                 direction='column'
                 justify="flex-start"
@@ -31,19 +31,22 @@ function Compromisso({ containerQuery }: MissaoProps) {
                 >
                     Nosso Compromisso
                 </Title>
-                <Text w={'80%'} fz={title3.fontSize} >
+                <Text 
+                    w={mediaQuery ? '100%' : '80%'} 
+                    fz={title3.fontSize} >
                     Nossa equipe se dedica a fornecer soluções
                     tecnológicas inovadoras e funcionais, adaptadas para impulsionar
                     o crescimento dos negócios
                 </Text>
             </Flex>
-            <Grid>
+            <Grid grow overflow='hidden'>
                 {cardBusinessContent.map((card, index) => (
                     <Grid.Col key={index} span={3}>
                         <CardBusiness
                             id={card.id}
                             title={card.title}
                             content={card.description}
+                            mediaQuery={mediaQuery}
                         />
                     </Grid.Col>
                 ))}

@@ -10,6 +10,8 @@ export default function Home() {
     const theme = useMantineTheme();
     const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
     const containerQuery = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
+
+    
     return (
         <Box component='div'>
             <Banner mediaQuery={mediaQuery} containerQuery={containerQuery} />
