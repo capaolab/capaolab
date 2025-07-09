@@ -1,4 +1,4 @@
-import { Container, Flex, Title, Image, Button, useMantineTheme } from "@mantine/core";
+import { Container, Flex, Title, Image, Button } from "@mantine/core";
 import { title1 } from "@/theme/typoghaphy";
 
 interface CallPotencilizeProps {
