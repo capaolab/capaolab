@@ -9,7 +9,7 @@ function MenuDesk() {
             component={"nav"}
             visibleFrom="lg"
             style={{
-                width: '50%',
+                width: '100%',
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',

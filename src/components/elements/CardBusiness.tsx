@@ -1,6 +1,6 @@
 import { Text, Paper, Title, Box, Image } from '@mantine/core';
 import { useMantineTheme } from '@mantine/core';
-import { title2 } from '@/theme/typoghaphy';
+import { title2, normalText } from '@/theme/typoghaphy';
 
 interface CardBusinessProps {
     id: string
@@ -8,7 +8,7 @@ interface CardBusinessProps {
     content: string
     mediaQuery?: boolean
 }
-function CardBusiness({ title, content, id, mediaQuery}: CardBusinessProps) {
+function CardBusiness({ title, content, id, mediaQuery }: CardBusinessProps) {
     const theme = useMantineTheme();
     return (
         <Box>
@@ -27,9 +27,9 @@ function CardBusiness({ title, content, id, mediaQuery}: CardBusinessProps) {
                     fit='contain'
                     src={`/svg/card-business/card-${id}.svg`}
                     alt={title}
-                    w={ mediaQuery ?  140 : 278}
-                    h={mediaQuery ?  160 : 312}
-                    p={mediaQuery ?  5 : 10}
+                    w={mediaQuery ? 140 : 278}
+                    h={mediaQuery ? 160 : 312}
+                    p={mediaQuery ? 5 : 10}
                 />
             </Paper>
             <Title
@@ -40,7 +40,13 @@ function CardBusiness({ title, content, id, mediaQuery}: CardBusinessProps) {
             >
                 {title}
             </Title>
-            <Text mt={10} size="lg" fw="400" lh={theme.lineHeights.md}>
+            <Text
+                mt={10}
+                size="lg"
+                fz={normalText.fontSize}
+                fw={normalText.fontWeight}
+                lh={normalText.lineHeight}
+            >
                 {content}
             </Text>
         </Box>

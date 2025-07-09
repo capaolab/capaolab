@@ -36,35 +36,37 @@ function Header({ opened, toggle }: { opened: boolean, toggle: () => void }) {
                 w={'100%'}
                 display={'flex'}
                 size={containerQuery ? 'xxl' : 'lg'}
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyItems: 'center',
-                }}
             >
-                <Link href="/" className={classes.imageLink}>
-                    <Image
-                        src={mediaQuery ? '/svg/cl-terracota.svg' : '/svg/logotipo_terracota.svg'}
-                        alt="Capão Lab Logo"
-                        fit='contain'
-                        w={mediaQuery ? 35 : 200}
-                        h={mediaQuery ? 35 : 50}
-                    />
-                </Link>
                 <Flex
                     w={'100%'}
-                    justify='flex-end'
+                    direction='row'
+                    justify='start'
                     align="center"
                 >
-                    <MenuDesk />
-                    <Burger
-                        opened={opened}
-                        variant="filled"
-                        onClick={toggle}
-                        hiddenFrom="lg"
-                        size="md"
-                        color={theme.colors.terracota[8]}
-                    />
+                    <Link href="/" className={classes.imageLink}>
+                        <Image
+                            src={mediaQuery ? '/svg/cl-terracota.svg' : '/svg/logotipo_terracota.svg'}
+                            alt="Capão Lab Logo"
+                            fit='contain'
+                            w={mediaQuery ? 35 : 200}
+                            h={mediaQuery ? 35 : 50}
+                        />
+                    </Link>
+                    <Flex
+                        w={'100%'}
+                        justify='flex-end'
+                        align="center"
+                    >
+                        <MenuDesk />
+                        <Burger
+                            opened={opened}
+                            variant="filled"
+                            onClick={toggle}
+                            hiddenFrom="lg"
+                            size="md"
+                            color={theme.colors.terracota[8]}
+                        />
+                    </Flex>
                 </Flex>
             </Container>
         </AppShell.Header>

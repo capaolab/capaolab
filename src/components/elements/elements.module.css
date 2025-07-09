@@ -4,4 +4,13 @@
     justify-items: center;
     width: auto;
     height: auto;
+    color: inherit;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+}
+.imageLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--mantine-color-folha-5);
 }
