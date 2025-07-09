@@ -5,6 +5,7 @@ import React from 'react';
 import { Flex, Box, useMantineTheme, Container, Text, Title } from '@mantine/core';
 import { normalText, title2 } from '@/theme/typoghaphy';
 
+
 interface MissaoProps {
     containerQuery: boolean;
     mediaQuery: boolean;
@@ -12,11 +13,13 @@ interface MissaoProps {
 
 function Missao({ containerQuery, mediaQuery }: MissaoProps) {
     const theme = useMantineTheme();
+
+
     return (
         <Box
             component='section'
             h={'50vh'}
-            bg={theme.colors.terracota[8]}
+            bg={theme.colors.terracota[7]}
             c={theme.white}
         >
             <Container
@@ -33,16 +36,16 @@ function Missao({ containerQuery, mediaQuery }: MissaoProps) {
                     h={'100%'}
                 >
                     <Title
+                        w={{ base: '100%', sm: '100%', md: '50%', lg: '50%', xl: '50%' }}
                         order={2}
                         fz={title2.fontSize}
                     >
                         Desenvolvimento de soluções personalizadas
                     </Title>
                     <Text
-                        w={{ base: '100%', md: '50%' }}
+                        w={{ base: '100%', sm: '100%', md: '50%', lg: '50%', xl: '50%' }}
                         fz={normalText.fontSize}
                         fw={normalText.fontWeight}
-                        mt={{ base: 60, md: 0 }}
                     >
                         Somos especialistas em desenvolver softwares e soluções tecnológicas personalizadas
                         para atender às necessidades específicas de cada cliente. Nossa missão é impulsionar

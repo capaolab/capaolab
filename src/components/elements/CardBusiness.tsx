@@ -1,25 +1,55 @@
-import { Text, Paper, Button } from '@mantine/core';
+import { Text, Paper, Title, Box, Image } from '@mantine/core';
 import { useMantineTheme } from '@mantine/core';
-function CardBusiness() {
+import { title2, normalText } from '@/theme/typoghaphy';
+
+interface CardBusinessProps {
+    id: string
+    title: string
+    content: string
+    mediaQuery?: boolean
+}
+function CardBusiness({ title, content, id, mediaQuery }: CardBusinessProps) {
     const theme = useMantineTheme();
     return (
-        <Paper
-            shadow='xl'
-            radius="md"
-            p="md"
-            mt={80}
-            component='article'
-            c={theme.colors.gray[9]}
-            style={(theme) => ({
-                backgroundColor: theme.colors.gray[8],
-            })}
-        >
-            <Text size="xl" fw="500" fs='italic' td="underline">Forum de IA</Text>
-            <Text mt={10} size="lg" fw="400" lh={theme.lineHeights.md}>
-                Projeto que visa impulsionar o uso da Inteligência Artificial em empresas.
+        <Box>
+            <Paper
+                shadow='md'
+                radius="lg"
+                p="md"
+                mt={80}
+                component='article'
+                c={theme.colors.gray[9]}
+                style={(theme) => ({
+                    backgroundColor: theme.colors.gray[2],
+                })}
+            >
+                <Image
+                    fit='contain'
+                    src={`/svg/card-business/card-${id}.svg`}
+                    alt={title}
+                    w={mediaQuery ? 140 : 278}
+                    h={mediaQuery ? 160 : 312}
+                    p={mediaQuery ? 5 : 10}
+                />
+            </Paper>
+            <Title
+                w={'80%'}
+                mt={40}
+                order={2}
+                fz={title2.fontSize}
+            >
+                {title}
+            </Title>
+            <Text
+                mt={10}
+                size="lg"
+                fz={normalText.fontSize}
+                fw={normalText.fontWeight}
+                lh={normalText.lineHeight}
+            >
+                {content}
             </Text>
-            <Button color={theme.colors.gray[7]} mt={20}>Saiba mais</Button>
-        </Paper>
+        </Box>
     );
 }
 

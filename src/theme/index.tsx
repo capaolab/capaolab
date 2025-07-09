@@ -5,7 +5,7 @@ import { createTheme, Container, rem } from '@mantine/core';
 import { terracota, folha } from './colors';
 
 const CONTAINER_SIZES: Record<string, number> = {
-    sm: 360,
+    sm: 400,
     md: 768,
     lg: 1024,
     xl: 1280,

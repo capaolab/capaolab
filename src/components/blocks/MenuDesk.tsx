@@ -6,8 +6,10 @@ import classes from "./blocks.module.css";
 function MenuDesk() {
     return (
         <Group
-            visibleFrom="md"
+            component={"nav"}
+            visibleFrom="lg"
             style={{
+                width: '100%',
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',

@@ -1,7 +1,6 @@
 import React from 'react';
 import CallAction from '@/components/blocks/CallAction';
 import { Flex, Container, Image } from '@mantine/core';
-import { marginX } from '@/theme/layout';
 
 interface BannerProps {
     containerQuery: boolean;
@@ -14,7 +13,6 @@ function Banner({ containerQuery, mediaQuery }: BannerProps) {
             component='section'
             h={'100vh'}
             size={containerQuery ? 'xxl' : 'lg'}
-            mx={marginX}
         >
             <Flex
                 id='home'

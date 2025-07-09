@@ -30,7 +30,9 @@ function Navbar() {
                     zIndex: 100,
                 })}
         >
-            <Box style={{
+            <Box 
+            mt={{ base: 50, sm: 50, md: 80, lg: 40, xl: 40 }}
+            style={{
                 width: "100%",
                 display: 'flex',
                 flexDirection: 'column',
@@ -38,7 +40,6 @@ function Navbar() {
                 justifyItems: 'start',
                 justifyContent: 'start',
                 zIndex: 110,
-                marginTop: 50
             }}>
                 {navLinksContent.map((link) => (
                     <Anchor
