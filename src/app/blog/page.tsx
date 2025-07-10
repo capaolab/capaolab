@@ -1,19 +1,42 @@
 'use client';
 
-import Link from 'next/link'
-import { Box, Title, Text, Flex, Button, useMantineTheme } from '@mantine/core';
+import {
+    Box,
+    Title,
+    Text,
+    Divider,
+    Flex,
+    Container,
+    TagsInput,
+    useMantineTheme
+} from '@mantine/core';
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { normalText, title1, title3 } from '@/theme/typoghaphy';
+import { useMediaQuery } from '@mantine/hooks';
+import PostCard from '@/components/elements/PostCard';
+
+
+export interface IPost {
+    slug: string;
+    title: string;
+    date: string;
+    description: string;
+    recommendations: number;
+    tags: string[];
+}
 
 
 function Blog() {
-    const [posts, setPosts] = useState([])
-    const [tags, setTags] = useState<{ tag: string }[]>([])
-    const router = useRouter()
     const theme = useMantineTheme();
+    const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
+    const containerQuery = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
+    const [posts, setPosts] = useState<IPost[]>([])
+    const [tags, setTags] = useState<{ tag: string }[]>([])
+    const [currentTags, setCurrentTags] = useState<string[]>([]);
 
     useEffect(() => {
-        fetch('/api/posts') // Use the correct API route path
+        fetch('/api/posts')
             .then(res => res.json())
             .then(data => {
                 setPosts(data.posts)
@@ -23,24 +46,46 @@ function Blog() {
 
 
     return (
-        <Box component='div'>
+        <Container
+            size={containerQuery ? 'xxl' : 'lg'}
+            mt={{ base: 20, sm: 20, md: 40, lg: 40, xl: 40 }}
+        >
             <Flex
-                // gap={{ sm: 100, md: 100, lg: 100, xl: 100 }}
-                direction='row'
-                justify="center"
-                align="center"
-                bg={theme.colors.terracota[7]}
-                c={theme.white}
+                w={'100%'}
+                direction={mediaQuery ? 'column' : 'row'}
+                justify="flex-start"
+                align="flex-start"
+                gap={{ base: 0, sm: 20, md: 20, lg: 40, xl: 40 }}
             >
-                {tags.map((tag, index) => (
-                    <div key={index} >
-                        {tag.tag}
-                    </div>
-                ))}
+                <Box
+                    component='section'
+                    w={mediaQuery ? '100%' : '70%'}
+                >
+                    <TagsInput
+                        placeholder='Tags'
+                        clearable
+                        acceptValueOnBlur
+                        maxTags={5}
+                        radius="md"
+                        data={tags.map(tag => tag.tag)}
+                        value={currentTags}
+                        onChange={setCurrentTags}
+                    />
+
+                    {posts.map((post, index) => (
+                        <PostCard key={index} {...post} />
+                    ))}
+                </Box>
+                <Divider orientation="vertical" visibleFrom='md' />
+                <Box
+                    w={'30%'}
+                    component='aside'
+                    visibleFrom='md'
+                >
+                    <Title order={2}>Mais Lidos</Title>
+                </Box>
             </Flex>
-            <h1>Blog</h1>
-            <p>Welcome to the blog page!</p>
-        </Box>
+        </Container>
     );
 }
 

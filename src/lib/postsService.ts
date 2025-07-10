@@ -7,8 +7,11 @@ const postsDirectory = path.join(process.cwd(), 'src/posts')
 export interface Post {
     slug: string
     title: string
-    tags: string[]
+    date: string
+    description: string
+    recommendations: number
     content: string
+    tags: string[]
 }
 
 export interface TagCount {
@@ -27,8 +30,11 @@ export function getAllPosts(): Omit<Post, 'content'>[] {
             const { data } = matter(source)
             return {
                 slug,
-                title: data.title || slug,
-                tags: data.tags || [],
+                title: data.title as string,
+                date: data.date as string,
+                description: data.description as string,
+                recommendations: data.recommendations as number,
+                tags: data.tags as string[],
             }
         })
 }
