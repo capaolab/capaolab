@@ -2,7 +2,11 @@
 Site corporativo da Capão Lab
 
 ## Indice
-1. [Bibliotecas](#bibliotecas)
+1. [Desenvolvimento](#deenvolvimento)
+2. [Bibliotecas](#bibliotecas)
+
+## Desenvolvimento
+1. Para habilitar o `pre-commit`, na raiz do projeto rodar: `npx husky init`
 
 ## Bibliotecas
-1. [Table Icons](https://tabler.io/icons)
+- [Table Icons](https://tabler.io/icons)

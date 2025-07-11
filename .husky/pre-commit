@@ -1,0 +1,4 @@
+npm run lint
+echo "\033[0;32m✔ Pre-commit linter stage passed...\033[0m \n"
+npm run build
+echo "\033[0;32m✔ Pre-commit build stage passed...\033[0m \n"
