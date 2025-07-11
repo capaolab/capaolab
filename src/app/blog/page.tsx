@@ -3,7 +3,6 @@
 import {
     Box,
     Title,
-    Text,
     Divider,
     Flex,
     Container,
@@ -11,8 +10,6 @@ import {
     useMantineTheme
 } from '@mantine/core';
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { normalText, title1, title3 } from '@/theme/typoghaphy';
 import { useMediaQuery } from '@mantine/hooks';
 import PostCard from '@/components/elements/PostCard';
 
@@ -34,6 +31,12 @@ function Blog() {
     const [posts, setPosts] = useState<IPost[]>([])
     const [tags, setTags] = useState<{ tag: string }[]>([])
     const [currentTags, setCurrentTags] = useState<string[]>([]);
+
+    const filteredPosts = currentTags.length === 0
+        ? posts
+        : posts.filter(post =>
+            currentTags.every(tag => post.tags.includes(tag))
+        );
 
     useEffect(() => {
         fetch('/api/posts')
@@ -72,7 +75,7 @@ function Blog() {
                         onChange={setCurrentTags}
                     />
 
-                    {posts.map((post, index) => (
+                    {filteredPosts.map((post, index) => (
                         <PostCard key={index} {...post} />
                     ))}
                 </Box>

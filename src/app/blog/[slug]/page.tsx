@@ -1,12 +1,18 @@
-export default async function Page({
-    params,
-}: {
-    params: Promise<{ slug: string }>
-}) {
-    const { slug } = await params
-    const { default: Post } = await import(`@/posts/${slug}.mdx`)
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import PostLayout from '@/components/PostLayout'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+
+
+export default async function Page({ params }: { params: { slug: string } }) {
+    const postPath = path.join(process.cwd(), 'src/posts', `${params.slug}.mdx`)
+    const source = fs.readFileSync(postPath, 'utf8')
+    const { content } = matter(source)
 
     return (
-        <Post />
+        <PostLayout>
+            <MDXRemote source={content} />
+        </PostLayout>
     )
 }
