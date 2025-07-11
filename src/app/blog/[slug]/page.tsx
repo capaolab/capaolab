@@ -1,25 +1,18 @@
 import fs from 'fs'
 import path from 'path'
+import matter from 'gray-matter'
+import PostLayout from '@/components/PostLayout'
+import { MDXRemote } from 'next-mdx-remote/rsc'
 
-export default async function Page({
-    params,
-}: {
-    params: Promise<{ slug: string }>
-}) {
-    const { slug } = await params
-    const { default: Post } = await import(`@/posts/${slug}.mdx`)
 
-    return <Post />
+export default async function Page({ params }: { params: { slug: string } }) {
+    const postPath = path.join(process.cwd(), 'src/posts', `${params.slug}.mdx`)
+    const source = fs.readFileSync(postPath, 'utf8')
+    const { content } = matter(source)
+
+    return (
+        <PostLayout>
+            <MDXRemote source={content} />
+        </PostLayout>
+    )
 }
-
-export function generateStaticParams() {
-    const postsDir = path.join(process.cwd(), 'src/posts')
-    const files = fs.readdirSync(postsDir)
-    return files
-        .filter(file => file.endsWith('.mdx'))
-        .map(file => ({
-            slug: file.replace(/\.mdx$/, '')
-        }))
-}
-
-export const dynamicParams = false

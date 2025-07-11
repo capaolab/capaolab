@@ -14,3 +14,7 @@
     cursor: pointer;
     color: var(--mantine-color-folha-5);
 }
+
+.tagLink{
+    cursor: pointer;
+}

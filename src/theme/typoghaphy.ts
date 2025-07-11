@@ -12,6 +12,7 @@ export const title2 = {
 }
 export const title3 = {
     'fontSize': { base: 'md', md: 'md', lg: 'xl', xl: 'xl' },
+    'fontWeight': { base: '300', md: '300', lg: '300', xl: '300' },
     'lineHeight': { base: '1.5', md: '1.75', lg: '1.75', xl: '1.75' },
 }
 export const normalText = {

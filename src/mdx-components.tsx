@@ -5,14 +5,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     return {
         h1: ({ children }) => (
             <h1 style={
-                { color: 'red', fontSize: '48px', marginTop: '48px' }}
+                { color: 'red', fontSize: '48px', marginTop: '48px', textDecoration: 'none' }}
             >
                 {children}
             </h1>
         ),
         h2: ({ children }) => (
             <h2 style={
-                { color: 'gray', fontSize: '24px', marginTop: '24px' }}
+                { color: 'gray', fontSize: '24px', marginTop: '24px', textDecoration: 'none' }}
             >
                 {children}
             </h2>
