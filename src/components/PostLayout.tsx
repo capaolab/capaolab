@@ -8,7 +8,7 @@ function PostLayout({
     children: React.ReactNode;
 }>) {
     const theme = useMantineTheme();
-    const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
+    // const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
     const containerQuery = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
 
 
