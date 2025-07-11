@@ -1,17 +1,18 @@
 import { getAllPosts } from '@/lib/postsService'
 
 interface TagPageProps {
-    params: { tag: string }
+    params: Promise<{ tag: string }>
 }
 
-export default function TagPage({ params }: TagPageProps) {
+export default async function TagPage({ params }: TagPageProps) {
+    const { tag } = await params
     const posts = getAllPosts().filter(post =>
-        post.tags.includes(params.tag)
+        post.tags.includes(tag)
     )
 
     return (
         <div>
-            <h1>Posts tagged with {params.tag}</h1>
+            <h1>Posts tagged with {tag}</h1>
             <ul>
                 {posts.map(post => (
                     <li key={post.slug}>
