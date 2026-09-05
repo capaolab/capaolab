@@ -1,6 +1,6 @@
 import { Image } from "@mantine/core";
 import { Carousel } from '@mantine/carousel';
-import { useRef } from 'react';
+import { useMemo } from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 
 interface CarouselParceirosProps {
@@ -9,7 +9,7 @@ interface CarouselParceirosProps {
 }
 
 function CarouselParceiros({ content, mediaQuery }: CarouselParceirosProps) {
-    const autoplay = useRef(Autoplay({ delay: 3000 }));
+    const autoplay = useMemo(() => Autoplay({ delay: 3000 }), []);
     return (
         <Carousel
             w={'100%'}
@@ -18,9 +18,9 @@ function CarouselParceiros({ content, mediaQuery }: CarouselParceirosProps) {
             slideGap={{ base: 0, '300px': 'md', '500px': 'xl' }}
             controlsOffset="xl"
             controlSize={20}
-            plugins={[autoplay.current]}
-            onMouseEnter={autoplay.current.stop}
-            onMouseLeave={() => autoplay.current.play()}
+            plugins={[autoplay]}
+            onMouseEnter={autoplay.stop}
+            onMouseLeave={() => autoplay.play()}
             emblaOptions={{
                 loop: true,
                 dragFree: false,

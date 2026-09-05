@@ -131,7 +131,7 @@ function Header() {
                 </Flex>
             </Container>
 
-            <Collapse in={opened} hiddenFrom="md">
+            <Collapse expanded={opened} hiddenFrom="md">
                 <Container size="xxl" w="100%" pb={20}>
                     <Flex direction="column" gap={16} ff="var(--mantine-font-family-monospace)" fz={13}>
                         {page.header.navLinksContent.map((item) => (

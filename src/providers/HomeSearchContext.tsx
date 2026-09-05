@@ -40,10 +40,19 @@ export function HomeSearchProvider({ children }: { children: React.ReactNode }) 
     // header/footer's plain hash links work again once we leave `/`: by
     // the time the home page remounts, view is already back to 'home', so
     // the section exists for the browser's native hash scroll to find.
-    useEffect(() => {
-        if (timer.current) clearTimeout(timer.current);
+    // State reset is derived during render (React's documented pattern for
+    // adjusting state on prop change) instead of an effect, since a
+    // setState-on-mount effect here causes an extra cascading render pass.
+    // The pending timer is a ref, so clearing it stays in its own effect.
+    const [lastPathname, setLastPathname] = useState(pathname);
+    if (pathname !== lastPathname) {
+        setLastPathname(pathname);
         setThinking(false);
         setView('home');
+    }
+
+    useEffect(() => {
+        if (timer.current) clearTimeout(timer.current);
     }, [pathname]);
 
     useEffect(() => () => {
