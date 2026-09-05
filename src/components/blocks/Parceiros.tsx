@@ -1,71 +1,38 @@
-import { Container, Flex, Title, Text, Box, useMantineTheme } from "@mantine/core";
-import { title1, normalText } from "@/theme/typoghaphy";
+'use client';
+
+import { Box, Container, Flex, Text, Title, useMantineTheme } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { cardParceiros } from '@/content/cards';
-import CarouselParceiros from "../elements/CarouselParceiros";
+import { useDesignTokens } from '@/theme/tokens';
+import CarouselParceiros from '../elements/CarouselParceiros';
 
-interface InovacaoProps {
-    containerQuery?: boolean;
-    mediaQuery?: boolean;
-}
-
-function Parceiros({ containerQuery, mediaQuery }: InovacaoProps) {
+function Parceiros() {
     const theme = useMantineTheme();
+    const { muted, line, ink } = useDesignTokens();
+    const mediaQuery = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
 
     return (
-        <Box
-            component='section'
-            bg={theme.colors.terracota[7]}
-            c={theme.white}
-            py={{ base: 20, sm: 20, md: 40, lg: 40, xl: 40 }}
-        >
-            <Container
-                component='section'
-                size={containerQuery ? 'xxl' : 'lg'}
-                w={'100%'}
-                py={{ base: 20, sm: 20, md: 0, lg: 0, xl: 0 }}
-                c={theme.white}
-            >
-                <Flex
-                    w={'100%'}
-                    direction='column'
-                    justify="flex-start"
-                    align="flex-start"
-                >
+        <Box component="section" py={{ base: 40, md: 60 }} style={{ borderTop: `1px solid ${line}` }}>
+            <Container size="xxl" w="100%">
+                <Flex direction="column" mb={30}>
                     <Title
-                        order={1}
-                        textWrap="balance"
-                        fz={title1.fontSize}
-                        mt={{ base: 20, sm: 20, md: 40, lg: 40, xl: 60 }}
+                        order={2}
+                        ff="var(--mantine-font-family-monospace)"
+                        fz={12}
+                        tt="uppercase"
+                        fw={500}
+                        style={{ letterSpacing: '0.14em' }}
                     >
                         Parceiros
                     </Title>
-                    <Text
-                        w={{ base: '100%', sm: '100%', md: '50%', lg: '50%', xl: '50%' }}
-                        mt={{ base: 20, sm: 20, md: 40, lg: 40, xl: 40 }}
-                        fz={normalText.fontSize}
-                        fw={normalText.fontWeight}
-                    >
-                        Somos reconhecidos por lideres do setor por fornecer soluções tecnológicas de alta qualidade
-                        e impulsionar o sucesso de nossos clientes.
+                    <Text fz={15} mt={12} maw={520} style={{ color: muted, lineHeight: 1.55 }}>
+                        Somos reconhecidos por líderes do setor por fornecer soluções tecnológicas de alta
+                        qualidade e impulsionar o sucesso de nossos clientes.
                     </Text>
                 </Flex>
-                <Flex
-                    // w={'100%'}
-                    h={mediaQuery ? '100%' : '50%'}
-                    direction='row'
-                    justify="flex-start"
-                    align="center"
-                    py={{ base: 60, sm: 20, md: 40, lg: 40, xl: 80 }}
-
-                    style={{
-                        resize: 'horizontal',
-                        overflow: 'hidden',
-                        maxWidth: '100%',
-                        minWidth: 250,
-                    }}
-                >
+                <Box p={{ base: 20, md: 40 }} style={{ backgroundColor: ink }}>
                     <CarouselParceiros content={cardParceiros} mediaQuery={mediaQuery} />
-                </Flex>
+                </Box>
             </Container>
         </Box>
     );

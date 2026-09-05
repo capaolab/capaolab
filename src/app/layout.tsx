@@ -2,19 +2,20 @@ import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Manrope } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
 import AppLayout from "@/components/AppLayout";
 import theme from "@/theme";
 
 
-const manRope = Manrope({
-    variable: "--font-geist-sans",
+const plexSans = IBM_Plex_Sans({
+    variable: "--font-plex-sans",
     subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
 });
 
 const ibmPlex = IBM_Plex_Mono({
-    variable: "--font-geist-mono",
+    variable: "--font-plex-mono",
     subsets: ["latin"],
     weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
@@ -52,7 +53,7 @@ export default function RootLayout({
             <head>
                 <ColorSchemeScript />
             </head>
-            <body className={`${manRope.variable} ${ibmPlex.variable}`}>
+            <body className={`${plexSans.variable} ${ibmPlex.variable}`}>
                 <MantineProvider theme={theme} defaultColorScheme="light">
                     <AppLayout>{children}</AppLayout>
                 </MantineProvider>

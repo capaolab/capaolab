@@ -1,9 +1,5 @@
-function Contato() {
-    return (
-        <>
-            <h1>Contato</h1>
-        </>
-    );
-}
+import ContatoPageContent from '@/components/blocks/ContatoPageContent';
 
-export default Contato;
+export default function Contato() {
+    return <ContatoPageContent />;
+}

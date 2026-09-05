@@ -1,103 +1,56 @@
-import React from 'react'
-import { AppShell, Box, Flex, Text, Container } from '@mantine/core';
-
-import ImageLink from '@/components/elements/ImageLink';
+import React from 'react';
+import { Box, Container, Flex, SimpleGrid, Text } from '@mantine/core';
 import ContatoFooter from '@/components/elements/ContatoFooter';
-import LinksRapidosFooter from '../elements/LinksRapidosFooter';
-import SigaFooter from '../elements/SigaFooter';
+import IndiceFooter from '@/components/elements/IndiceFooter';
+import SigaFooter from '@/components/elements/SigaFooter';
+import { useDesignTokens } from '@/theme/tokens';
+import { base } from '@/content/infos'
 
-interface FooterProps {
-    containerQuery?: boolean;
-    mediaQuery?: boolean;
-}
-function Footer({ containerQuery, mediaQuery }: FooterProps) {
+function Footer() {
+    const { paper, ink, muted, line } = useDesignTokens();
 
     return (
-        <AppShell.Footer
-            w={'100%'}
-            withBorder={false}
-            style={(theme) => ({
-                backgroundColor: theme.colors.terracota[8],
-                color: theme.white,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'start',
-                justifyItems: 'start',
-                position: 'relative',
-                zIndex: 0,
-            })}
+        <Box
+            component="footer"
+            id="contato"
+            style={{ backgroundColor: paper, color: ink, borderTop: `1px solid ${line}` }}
         >
-            <Container
-                w={'100%'}
-                h={'100%'}
-                component='section'
-                size={containerQuery ? 'xxl' : 'lg'}
-                py={{ base: 40, sm: 40, md: 40, lg: 20, xl: 20 }}
-            >
-                <Flex
-                    w={'100%'}
-                    direction='column'
-                    justify='flex-start'
-                    align='flex-start'
-                >
-                    <Box w={'100%'}>
-                        <ImageLink
-                            url="/"
-                            src="/svg/logotipo.svg"
-                            alt="Capão Lab Logo"
-                            width={mediaQuery ? 160 : 200}
-                            height={mediaQuery ? 40 : 40}
-                        />
-                        <Text size="sm" mt={5}>
-                            Nossa Natureza é Tecnológica
+            <Container size="xxl" w="100%" py={{ base: 40, md: 56 }}>
+                <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing={40}>
+                    <Box>
+                        <Text
+                            ff="var(--mantine-font-family-monospace)"
+                            fz={14}
+                            tt="uppercase"
+                            mb={10}
+                            style={{ letterSpacing: '0.14em' }}
+                        >
+                            {base.title}
+                        </Text>
+                        <Text ff="var(--mantine-font-family-monospace)" fz={11} style={{ letterSpacing: '0.08em', color: muted }}>
+                            {base.subtitle}
                         </Text>
                     </Box>
-                    <Flex
-                        w={'100%'}
-                        direction={mediaQuery ? 'column' : 'row'}
-                        justify={'flex-start'}
-                        align={mediaQuery ? 'flex-start' : 'center'}
-                        gap={mediaQuery ? 10 : 60}
-                        py={40}
-                    >
-                        <ContatoFooter />
-                        <LinksRapidosFooter />
-                        <SigaFooter />
-                    </Flex>
-                    <Flex
-                        w={'100%'}
-                        direction={'row'}
-                        justify={'center'}
-                        align={'center'}
-                        gap={mediaQuery ? 10 : 30}
-                        py={{ base: 10, sm: 10, md: 10, lg: 10, xl: 10 }}
-                        pos={'absolute'}
-                        bottom={0}
-                        left={0}
-                        style={
-                            (theme) => ({
-                                backgroundColor: `${theme.black}`,
-                                color: theme.white,
-                                zIndex: 110,
-                            })}
-                    >
-                        <ImageLink
-                            url="/"
-                            src="/svg/cl-branco.svg"
-                            alt="Capão Lab Logo"
-                            width={20}
-                            height={20}
-                        />
-                        <Text
-                            fz={{ base: 'xs', sm: 'xs', md: 'md', lg: 'md', xl: 'md' }}
-                            fw={700}
-                        >
-                            © 2023 por Capão Lab. Todos os Direitos Reservados
+                    <ContatoFooter />
+                    <IndiceFooter />
+                    <SigaFooter />
+                </SimpleGrid>
+            </Container>
+
+            <Box style={{ borderTop: `1px solid ${line}` }}>
+                <Container size="xxl" w="100%" py={16}>
+                    <Flex justify="space-between" wrap="wrap" gap={8}>
+                        <Text ff="var(--mantine-font-family-monospace)" fz={11} style={{ color: muted }}>
+                            © 2026 Capão Lab
+                        </Text>
+                        {/* TODO Construir páginas para informações*/}
+                        <Text ff="var(--mantine-font-family-monospace)" fz={11} style={{ color: muted }}>
+                            Termos · Privacidade · Cookies
                         </Text>
                     </Flex>
-                </Flex>
-            </Container>
-        </AppShell.Footer>
+                </Container>
+            </Box>
+        </Box>
     );
 }
 

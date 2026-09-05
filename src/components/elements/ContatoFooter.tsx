@@ -1,32 +1,28 @@
-import { Box, Title, Text, Anchor } from '@mantine/core';
-import { title2 } from '@/theme/typoghaphy';
-import { IconMail } from '@tabler/icons-react';
-import classes from "./elements.module.css";
-
+import { Box, Text } from '@mantine/core';
+import { useDesignTokens } from '@/theme/tokens';
+import { base } from '@/content/infos';
 
 function ContatoFooter() {
+    const { muted } = useDesignTokens();
+
     return (
         <Box>
-            <Title
-                fz={title2.fontSize}
-                py={10}
+            <Text
+                ff="var(--mantine-font-family-monospace)"
+                fz={10}
+                tt="uppercase"
+                mb={12}
+                style={{ letterSpacing: '0.14em', color: muted }}
             >
                 Contato
-            </Title>
-            <Text py={2}>Caeté-Açu, Palmeiras - Bahia</Text>
-            <Text py={2}>(71) 9 9999-9999</Text>
-            <Anchor
-                className={classes.imageLink}
-                href="mailto:accounts@capaolab.com.br"
-                target="_blank"
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 10
-                }}
-            >
-                <IconMail size={20} /> accounts@capaolab.com.br
-            </Anchor>
+            </Text>
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <Text fz="sm">{base.address}</Text>
+                <Text fz="sm">{base.phone}</Text>
+                <Text component="a" href="mailto:accounts@capaolab.com.br" fz="sm" style={{ color: 'inherit' }}>
+                    {base.email}
+                </Text>
+            </Box>
         </Box>
     );
 }

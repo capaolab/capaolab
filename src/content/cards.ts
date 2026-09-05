@@ -1,24 +1,62 @@
-export const cardBusinessContent = [
+export const frentesContent = [
     {
-        id: '1',
-        title: 'ChatBot para Atendimento',
-        description: 'Chatbot rápido que responde o básico, sem enrolar. Atende no Whats, Insta ou Site, 24h por dia. Resolve o que dá e passa pro humano quando precisa',
+        id: '01',
+        title: 'Software sob demanda',
+        description: 'Sistemas específicos para a operação de cada negócio, escritos do zero quando o pronto não serve — da concepção à implementação, em um único escopo.',
     },
     {
-        id: '2',
-        title: 'Soluções Integradas',
-        description: 'Oferecemos soluções tecnológicas completas, desde a conceptção até a implementação, para atender às demandas mais desafiadoras',
+        id: '02',
+        title: 'Automação de processos',
+        description: 'Tarefas repetitivas mapeadas, automatizadas e integradas aos sistemas já em uso. Ganho medido em horas de operação liberadas.',
     },
     {
-        id: '3',
-        title: 'Suporte Especializado',
-        description: 'Nosso compromisso com o atendimento excepcional garante que nosso cliente receba suporte personalizado e soluções sob medida para suas necessidades',
+        id: '03',
+        title: 'Atendimento automatizado',
+        description: 'Chatbot em WhatsApp, Instagram e site, 24h por dia. Resolve o básico e transfere para atendimento humano quando necessário.',
     },
     {
-        id: '4',
+        id: '04',
+        title: 'Suporte continuado',
+        description: 'Manutenção e evolução do que foi entregue, com canal direto de quem escreveu o código e suporte personalizado sob medida.',
+    },
+]
+
+export const projetosContent = [
+    {
+        id: 'busca-linguagem-natural',
+        year: '2026',
+        title: 'Busca em linguagem natural',
+        description: 'Índice conversacional sobre projetos, documentos e frentes do lab. Em construção aberta.',
+        status: 'em curso',
+    },
+    {
+        id: 'diagnostico-digital',
+        year: '2025',
+        title: 'Diagnóstico Digital',
+        description: 'Avaliação gratuita do nível digital de uma empresa, com plano de prioridades ao final.',
+        status: 'aberto',
+    },
+    {
+        id: 'automatizacao-inteligente',
+        year: '2024',
         title: 'Automatização Inteligente',
-        description: 'Integramos tecnologia de automação inteligente para otimizar processos e impulsiar a eficiência operacional',
-    }
+        description: 'Automação de processos operacionais internos, integrada aos sistemas já em uso pelo cliente.',
+        status: 'em operação',
+    },
+    {
+        id: 'chatbot-atendimento',
+        year: '2024',
+        title: 'ChatBot para Atendimento',
+        description: 'Atendimento em WhatsApp, Instagram e site, 24h. Resolve o básico e transfere para humano quando necessário.',
+        status: 'em operação',
+    },
+    {
+        id: 'solucoes-integradas',
+        year: '2023',
+        title: 'Soluções Integradas',
+        description: 'Da concepção à implementação, em um único escopo. Primeira frente do lab, em Caeté-Açu.',
+        status: 'contínuo',
+    },
 ]
 
 export const cardParceiros = [

@@ -2,7 +2,7 @@
 
 import '@mantine/core/styles.css';
 import { createTheme, Container, rem } from '@mantine/core';
-import { terracota, folha } from './colors';
+import { terracota, folha, paper, ink, muted, line } from './colors';
 
 const CONTAINER_SIZES: Record<string, number> = {
     sm: 400,
@@ -19,8 +19,9 @@ const theme = createTheme({
         lg: '1024px',   // Laptop
         xl: '1280px',   // Desktop
     },
-    fontFamily: 'Manrope, sans-serif',
+    fontFamily: 'IBM Plex Sans, system-ui, sans-serif',
     fontFamilyMonospace: 'IBM Plex Mono, monospace',
+    defaultRadius: 0,
     fontSizes: {
         xs: '12px',
         sm: '14px',
@@ -44,7 +45,7 @@ const theme = createTheme({
         xl: '1.75',
     },
     headings: {
-        fontFamily: 'Manrope, sans-serif',
+        fontFamily: 'IBM Plex Sans, system-ui, sans-serif',
         sizes: {
             h1: {
                 fontWeight: '700',
@@ -66,6 +67,13 @@ const theme = createTheme({
         folha,
     },
 
+    other: {
+        paper,
+        ink,
+        muted,
+        line,
+    },
+
     components: {
         Container: Container.extend({
             vars: (_, { size, fluid }) => ({
@@ -82,7 +90,7 @@ const theme = createTheme({
             defaultProps: {
                 variant: 'filled',
                 size: 'lg',
-                radius: 'md',
+                radius: 0,
                 color: 'terracota.7',
 
             },

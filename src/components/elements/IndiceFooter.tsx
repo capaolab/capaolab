@@ -1,11 +1,14 @@
 import { Box, Text } from '@mantine/core';
+import Link from 'next/link';
 import { useDesignTokens } from '@/theme/tokens';
+import { useSectionNavigate } from '@/providers/HomeSearchContext';
 import classes from '../sections/sections.module.css';
 import { page } from '@/content/infos'
 
 
-function SigaFooter() {
+function IndiceFooter() {
     const { muted } = useDesignTokens();
+    const navigateSection = useSectionNavigate();
 
     return (
         <Box>
@@ -16,11 +19,18 @@ function SigaFooter() {
                 mb={12}
                 style={{ letterSpacing: '0.14em', color: muted }}
             >
-                Siga
+                Índice
             </Text>
             <Box style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                {page.footer.siga.map((link) => (
-                    <Text key={link.label} component="a" href={link.href} fz="sm" className={classes.footerLink}>
+                {page.footer.indice.map((link) => (
+                    <Text
+                        key={link.label}
+                        component={Link}
+                        href={link.href}
+                        onClick={(e) => navigateSection(link.href, e)}
+                        fz="sm"
+                        className={classes.footerLink}
+                    >
                         {link.label}
                     </Text>
                 ))}
@@ -29,4 +39,4 @@ function SigaFooter() {
     );
 }
 
-export default SigaFooter;
+export default IndiceFooter;

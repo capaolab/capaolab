@@ -1,13 +1,79 @@
-.navLink {
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    width: auto;
-    height: auto;
-    padding-right: 16px;
-}
-.navLink:hover {
-    text-decoration: underline;
+.suggestion {
+    background: transparent;
     cursor: pointer;
-    color: cyan;
+    color: var(--mantine-color-gray-6);
+}
+.suggestion:hover {
+    color: var(--mantine-color-black);
+    border-color: var(--mantine-color-black);
+}
+
+.projectRow {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+.projectRow:hover {
+    background-color: var(--mantine-color-terracota-0);
+}
+
+.sourceLink {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+.sourceLink:hover {
+    color: var(--mantine-color-terracota-7);
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+@keyframes pulse {
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 1; }
+}
+.cursor {
+    display: inline-block;
+    width: 9px;
+    height: 21px;
+    background: var(--mantine-color-terracota-7);
+    animation: blink 1.1s step-end infinite;
+    vertical-align: -3px;
+}
+.pulseDot {
+    animation: pulse 1.6s infinite;
+}
+.pulseDotSlow {
+    animation: pulse 2.4s infinite;
+}
+
+/* Hero + StatsBar fill exactly one screen on desktop (lg and up): the
+   wrapper is pinned to 100dvh and the hero slot absorbs the remaining
+   space above the stats bar's natural height. Below lg, only the hero
+   itself is full screen; the stats bar reverts to its normal height. */
+.heroStatsWrap {
+    display: flex;
+    flex-direction: column;
+}
+.heroSlot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 1023.98px) {
+    .heroSlot {
+        min-height: calc(100dvh - var(--header-h, 65px));
+    }
+}
+
+@media (min-width: 1024px) {
+    .heroStatsWrap {
+        min-height: calc(100dvh - var(--header-h, 65px));
+    }
+    .heroSlot {
+        flex: 1;
+    }
 }
