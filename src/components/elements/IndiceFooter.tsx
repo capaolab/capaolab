@@ -14,7 +14,7 @@ function IndiceFooter() {
         <Box>
             <Text
                 ff="var(--mantine-font-family-monospace)"
-                fz={10}
+                fz={12}
                 tt="uppercase"
                 mb={12}
                 style={{ letterSpacing: '0.14em', color: muted }}

@@ -22,14 +22,14 @@ function Projetos() {
                     <Title
                         order={2}
                         ff="var(--mantine-font-family-monospace)"
-                        fz={12}
+                        fz={14}
                         tt="uppercase"
                         fw={500}
                         style={{ letterSpacing: '0.14em' }}
                     >
                         Projetos associados
                     </Title>
-                    <Text ff="var(--mantine-font-family-monospace)" fz={12} style={{ color: muted }}>
+                    <Text ff="var(--mantine-font-family-monospace)" fz={14} style={{ color: muted }}>
                         ordem cronológica · {String(projetosContent.length).padStart(2, '0')} registros
                     </Text>
                 </Flex>
@@ -42,18 +42,18 @@ function Projetos() {
                             py={30}
                             direction={{ base: 'column', md: 'row' }}
                         >
-                            <Text ff="var(--mantine-font-family-monospace)" fz={13} style={{ color: muted, minWidth: 60 }}>
+                            <Text ff="var(--mantine-font-family-monospace)" fz={16} style={{ color: muted, minWidth: 60 }}>
                                 {project.year}
                             </Text>
-                            <Title order={3} fz={{ base: 22, md: 30 }} fw={500} style={{ letterSpacing: '-0.02em', flex: '1 1 260px' }}>
+                            <Title order={3} fz={{ base: 26, md: 36 }} fw={500} style={{ letterSpacing: '-0.02em', flex: '1 1 260px' }}>
                                 {project.title}
                             </Title>
-                            <Text fz={15} style={{ color: muted, lineHeight: 1.5, flex: '2 1 340px' }}>
+                            <Text fz={18} style={{ color: muted, lineHeight: 1.5, flex: '2 1 340px' }}>
                                 {project.description}
                             </Text>
                             <Text
                                 ff="var(--mantine-font-family-monospace)"
-                                fz={11}
+                                fz={13}
                                 tt="uppercase"
                                 style={{ letterSpacing: '0.1em', color: accent, whiteSpace: 'nowrap' }}
                             >

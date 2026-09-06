@@ -37,13 +37,13 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
                     component="button"
                     type="button"
                     onClick={onBack}
+                    className={classes.backButton}
                     style={{
                         fontFamily: 'var(--mantine-font-family-monospace)',
-                        fontSize: 12,
+                        fontSize: 14,
                         letterSpacing: '0.08em',
                         background: 'transparent',
                         border: 'none',
-                        color: muted,
                         padding: 0,
                         cursor: 'pointer',
                         marginBottom: 40,
@@ -54,7 +54,7 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
 
                 <Box component="form" onSubmit={submit} pb={14} mb={28} style={{ borderBottom: `1.5px solid ${ink}` }}>
                     <Flex align="center" gap={16}>
-                        <Text ff="var(--mantine-font-family-monospace)" fz={18} style={{ color: accent }}>
+                        <Text ff="var(--mantine-font-family-monospace)" fz={22} style={{ color: accent }}>
                             &gt;
                         </Text>
                         <Box
@@ -67,7 +67,7 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
                                 outline: 'none',
                                 background: 'transparent',
                                 fontFamily: 'var(--mantine-font-family-monospace)',
-                                fontSize: 18,
+                                fontSize: 22,
                                 color: ink,
                                 minWidth: 0,
                             }}
@@ -75,12 +75,13 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
                         <Box
                             component="button"
                             type="submit"
+                            className={classes.ctaButton}
                             style={{
                                 border: 'none',
                                 background: ink,
                                 color: 'var(--mantine-color-body)',
                                 fontFamily: 'var(--mantine-font-family-monospace)',
-                                fontSize: 11,
+                                fontSize: 13,
                                 letterSpacing: '0.1em',
                                 textTransform: 'uppercase',
                                 padding: '9px 16px',
@@ -96,7 +97,7 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
                     <Box className={classes.pulseDot} style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: accent }} />
                     <Text
                         ff="var(--mantine-font-family-monospace)"
-                        fz={11}
+                        fz={13}
                         tt="uppercase"
                         style={{ letterSpacing: '0.12em', color: muted }}
                     >
@@ -107,7 +108,7 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
                 <SimpleGrid cols={{ base: 1, md: 2 }} spacing={72} style={{ alignItems: 'start' }}>
                     <Box>
                         {!thinking && hit && hit.paragraphs.map((paragraph, index) => (
-                            <Text key={index} fz={21} mb={22} style={{ lineHeight: 1.55, letterSpacing: '-0.01em' }}>
+                            <Text key={index} fz={25} mb={22} style={{ lineHeight: 1.55, letterSpacing: '-0.01em' }}>
                                 {paragraph}
                             </Text>
                         ))}
@@ -117,7 +118,7 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
                             <Box mt={52} pt={20} style={{ borderTop: `1px solid ${line}` }}>
                                 <Text
                                     ff="var(--mantine-font-family-monospace)"
-                                    fz={10}
+                                    fz={12}
                                     tt="uppercase"
                                     mb={16}
                                     style={{ letterSpacing: '0.14em', color: muted }}
@@ -134,7 +135,7 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
                                             className={classes.suggestion}
                                             style={{
                                                 fontFamily: 'var(--mantine-font-family-monospace)',
-                                                fontSize: 12,
+                                                fontSize: 14,
                                                 border: `1px solid ${line}`,
                                                 padding: '7px 12px',
                                             }}
@@ -150,7 +151,7 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
                     <Box pt={20} style={{ borderTop: `1px solid ${ink}` }}>
                         <Text
                             ff="var(--mantine-font-family-monospace)"
-                            fz={10}
+                            fz={12}
                             tt="uppercase"
                             mb={4}
                             style={{ letterSpacing: '0.14em', color: muted }}
@@ -172,17 +173,17 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
                             >
                                 <Text
                                     ff="var(--mantine-font-family-monospace)"
-                                    fz={10}
+                                    fz={12}
                                     tt="uppercase"
                                     mb={7}
                                     style={{ letterSpacing: '0.12em', color: muted }}
                                 >
                                     {source.kind}
                                 </Text>
-                                <Text fz={17} style={{ letterSpacing: '-0.01em' }}>
+                                <Text fz={20} style={{ letterSpacing: '-0.01em' }}>
                                     {source.label}
                                 </Text>
-                                <Text fz={14} mt={5} style={{ color: muted, lineHeight: 1.45 }}>
+                                <Text fz={17} mt={5} style={{ color: muted, lineHeight: 1.45 }}>
                                     {source.meta}
                                 </Text>
                             </Box>

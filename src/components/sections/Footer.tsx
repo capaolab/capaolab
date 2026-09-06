@@ -20,14 +20,14 @@ function Footer() {
                     <Box>
                         <Text
                             ff="var(--mantine-font-family-monospace)"
-                            fz={14}
+                            fz={17}
                             tt="uppercase"
                             mb={10}
                             style={{ letterSpacing: '0.14em' }}
                         >
                             {base.title}
                         </Text>
-                        <Text ff="var(--mantine-font-family-monospace)" fz={11} style={{ letterSpacing: '0.08em', color: muted }}>
+                        <Text ff="var(--mantine-font-family-monospace)" fz={13} style={{ letterSpacing: '0.08em', color: muted }}>
                             {base.subtitle}
                         </Text>
                     </Box>
@@ -40,11 +40,11 @@ function Footer() {
             <Box style={{ borderTop: `1px solid ${line}` }}>
                 <Container size="xxl" w="100%" py={16}>
                     <Flex justify="space-between" wrap="wrap" gap={8}>
-                        <Text ff="var(--mantine-font-family-monospace)" fz={11} style={{ color: muted }}>
+                        <Text ff="var(--mantine-font-family-monospace)" fz={13} style={{ color: muted }}>
                             © 2026 Capão Lab
                         </Text>
                         {/* TODO Construir páginas para informações*/}
-                        <Text ff="var(--mantine-font-family-monospace)" fz={11} style={{ color: muted }}>
+                        <Text ff="var(--mantine-font-family-monospace)" fz={13} style={{ color: muted }}>
                             Termos · Privacidade · Cookies
                         </Text>
                     </Flex>

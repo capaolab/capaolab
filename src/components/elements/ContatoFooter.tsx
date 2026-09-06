@@ -9,7 +9,7 @@ function ContatoFooter() {
         <Box>
             <Text
                 ff="var(--mantine-font-family-monospace)"
-                fz={10}
+                fz={12}
                 tt="uppercase"
                 mb={12}
                 style={{ letterSpacing: '0.14em', color: muted }}
@@ -17,9 +17,9 @@ function ContatoFooter() {
                 Contato
             </Text>
             <Box style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                <Text fz="sm">{base.address}</Text>
-                <Text fz="sm">{base.phone}</Text>
-                <Text component="a" href="mailto:accounts@capaolab.com.br" fz="sm" style={{ color: 'inherit' }}>
+                <Text fz="xs">{base.address}</Text>
+                <Text fz="xs">{base.phone}</Text>
+                <Text component="a" href="mailto:contato@capaolab.com.br" fz="xs" style={{ color: 'inherit' }}>
                     {base.email}
                 </Text>
             </Box>

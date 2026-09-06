@@ -21,17 +21,17 @@ function ContatoPageContent() {
             <Container size="xxl" w="100%" py={{ base: 56, md: 88 }}>
                 <Text
                     ff="var(--mantine-font-family-monospace)"
-                    fz={11}
+                    fz={13}
                     tt="uppercase"
                     mb={20}
                     style={{ letterSpacing: '0.14em', color: muted }}
                 >
                     Fale com o lab
                 </Text>
-                <Title order={1} fw={500} fz={{ base: 36, md: 52 }} lh={1.05} maw={760} mb={16} style={{ letterSpacing: '-0.03em' }}>
+                <Title order={1} fw={500} fz={{ base: 43, md: 62 }} lh={1.05} maw={910} mb={16} style={{ letterSpacing: '-0.03em' }}>
                     Propostas, dúvidas ou pedido de diagnóstico digital: escreva direto para o lab.
                 </Title>
-                <Text fz={{ base: 16, md: 18 }} maw={620} mb={56} style={{ color: muted, lineHeight: 1.5 }}>
+                <Text fz={{ base: 19, md: 22 }} maw={740} mb={56} style={{ color: muted, lineHeight: 1.5 }}>
                     Respondemos pelo e-mail abaixo, com leitura técnica do escopo antes de qualquer retorno.
                 </Text>
 
@@ -40,7 +40,7 @@ function ContatoPageContent() {
                         <Box key={channel.label}>
                             <Text
                                 ff="var(--mantine-font-family-monospace)"
-                                fz={10}
+                                fz={12}
                                 tt="uppercase"
                                 mb={10}
                                 style={{ letterSpacing: '0.14em', color: muted }}
@@ -48,11 +48,11 @@ function ContatoPageContent() {
                                 {channel.label}
                             </Text>
                             {channel.href ? (
-                                <Text component="a" href={channel.href} fz={18} style={{ color: accent }}>
+                                <Text component="a" href={channel.href} fz={22} style={{ color: accent }}>
                                     {channel.value}
                                 </Text>
                             ) : (
-                                <Text fz={18}>{channel.value}</Text>
+                                <Text fz={12}>{channel.value}</Text>
                             )}
                         </Box>
                     ))}

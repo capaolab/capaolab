@@ -21,14 +21,14 @@ function StatsBar() {
                 >
                     <Text
                         ff="var(--mantine-font-family-monospace)"
-                        fz={10}
+                        fz={12}
                         tt="uppercase"
                         mb={8}
                         style={{ letterSpacing: '0.14em', color: muted }}
                     >
                         {stat.label}
                     </Text>
-                    <Text ff="var(--mantine-font-family-monospace)" fz={15}>
+                    <Text ff="var(--mantine-font-family-monospace)" fz={18}>
                         {stat.value}
                     </Text>
                 </Box>

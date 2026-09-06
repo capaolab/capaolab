@@ -18,14 +18,14 @@ function Parceiros() {
                     <Title
                         order={2}
                         ff="var(--mantine-font-family-monospace)"
-                        fz={12}
+                        fz={14}
                         tt="uppercase"
                         fw={500}
                         style={{ letterSpacing: '0.14em' }}
                     >
                         Parceiros
                     </Title>
-                    <Text fz={15} mt={12} maw={520} style={{ color: muted, lineHeight: 1.55 }}>
+                    <Text fz={18} mt={12} maw={620} style={{ color: muted, lineHeight: 1.55 }}>
                         Somos reconhecidos por líderes do setor por fornecer soluções tecnológicas de alta
                         qualidade e impulsionar o sucesso de nossos clientes.
                     </Text>

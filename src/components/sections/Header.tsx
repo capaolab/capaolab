@@ -51,7 +51,7 @@ function NavLink({ label, link, external, fz, onClick }: NavLinkProps) {
 
 function Header() {
     const [opened, { toggle, close }] = useDisclosure(false);
-    const { paper, ink, muted, line, accent } = useDesignTokens();
+    const { paper, ink, line, accent } = useDesignTokens();
     const isMobile = useMediaQuery('(max-width: 62em)');
     const barRef = useRef<HTMLDivElement>(null);
     const navigateSection = useSectionNavigate();
@@ -93,35 +93,31 @@ function Header() {
                         onClick={(e) => { navigateSection('/#topo', e); close(); }}
                         style={{ textDecoration: 'none', color: 'inherit' }}
                     >
-                        <Flex align="baseline" gap={12}>
+                        <Flex align="center" gap={10}>
+                            <Box
+                                className={classes.logoMark}
+                                style={{ width: isMobile ? 22 : 26, height: isMobile ? 22 : 26 }}
+                            />
                             <Text
                                 ff="var(--mantine-font-family-monospace)"
-                                fz={14}
+                                fz={17}
                                 fw={500}
                                 tt="uppercase"
                                 style={{ letterSpacing: '0.14em', color: ink }}
                             >
                                 {base.title}
                             </Text>
-                            <Text
-                                ff="var(--mantine-font-family-monospace)"
-                                fz={11}
-                                visibleFrom="sm"
-                                style={{ letterSpacing: '0.08em', color: muted }}
-                            >
-                                {base.subtitle}
-                            </Text>
                         </Flex>
                     </Link>
 
-                    <Flex component="nav" visibleFrom="md" gap={28} ff="var(--mantine-font-family-monospace)" fz={12}>
+                    <Flex component="nav" visibleFrom="md" gap={28} ff="var(--mantine-font-family-monospace)" fz={14}>
                         {page.header.navLinksContent.map((item) => (
                             <NavLink
                                 key={item.label}
                                 label={item.label}
                                 link={item.link}
                                 external={item.external}
-                                fz={12}
+                                fz={14}
                                 onClick={(e) => navigateSection(item.link, e)}
                             />
                         ))}
@@ -133,14 +129,14 @@ function Header() {
 
             <Collapse expanded={opened} hiddenFrom="md">
                 <Container size="xxl" w="100%" pb={20}>
-                    <Flex direction="column" gap={16} ff="var(--mantine-font-family-monospace)" fz={13}>
+                    <Flex direction="column" gap={16} ff="var(--mantine-font-family-monospace)" fz={16}>
                         {page.header.navLinksContent.map((item) => (
                             <NavLink
                                 key={item.label}
                                 label={item.label}
                                 link={item.link}
                                 external={item.external}
-                                fz={13}
+                                fz={16}
                                 onClick={(e) => { navigateSection(item.link, e); close(); }}
                             />
                         ))}

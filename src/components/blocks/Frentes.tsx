@@ -13,32 +13,32 @@ function Frentes() {
                     <Title
                         order={2}
                         ff="var(--mantine-font-family-monospace)"
-                        fz={12}
+                        fz={14}
                         tt="uppercase"
                         fw={500}
                         style={{ letterSpacing: '0.14em' }}
                     >
                         Frentes
                     </Title>
-                    <Text fz={15} style={{ color: muted, lineHeight: 1.55, maxWidth: 460 }}>
+                    <Text fz={18} style={{ color: muted, lineHeight: 1.55, maxWidth: 550 }}>
                         O que o lab entrega, sem intermediários. Cada frente abre um projeto próprio no índice.
                     </Text>
                 </SimpleGrid>
 
                 <SimpleGrid
-                    cols={{ base: 1, sm: 2 }}
+                    cols={{ base: 1, md: 2 }}
                     spacing={1}
                     style={{ backgroundColor: line, border: `1px solid ${line}` }}
                 >
                     {frentesContent.map((frente) => (
                         <Box key={frente.id} p={34} style={{ backgroundColor: paper }}>
-                            <Text ff="var(--mantine-font-family-monospace)" fz={11} mb={14} style={{ color: accent }}>
+                            <Text ff="var(--mantine-font-family-monospace)" fz={13} mb={14} style={{ color: accent }}>
                                 {frente.id}
                             </Text>
-                            <Title order={3} fz={22} fw={500} mb={10} style={{ letterSpacing: '-0.015em' }}>
+                            <Title order={3} fz={26} fw={500} mb={10} style={{ letterSpacing: '-0.015em' }}>
                                 {frente.title}
                             </Title>
-                            <Text fz={15} style={{ color: muted, lineHeight: 1.55 }}>
+                            <Text fz={18} style={{ color: muted, lineHeight: 1.55 }}>
                                 {frente.description}
                             </Text>
                         </Box>

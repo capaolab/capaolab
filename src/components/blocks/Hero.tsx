@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Box, Container, Flex, Text, Title } from '@mantine/core';
 import { useDesignTokens } from '@/theme/tokens';
 import { SEARCH_SUGGESTIONS } from '@/content/searchKb';
+import { base } from '@/content/infos';
 import classes from './blocks.module.css';
 
 interface HeroProps {
@@ -22,7 +23,28 @@ function Hero({ onSearch }: HeroProps) {
     return (
         <Box id="topo" className={classes.heroSlot} style={{ borderBottom: `1px solid ${line}` }}>
             <Container size="xxl" w="100%" py={{ base: 40, md: 60 }}>
-                <Flex align="center" gap={10} mb={34}>
+                <Text
+                    ff="var(--mantine-font-family-monospace)"
+                    fz={13}
+                    tt="uppercase"
+                    mb={16}
+                    style={{ letterSpacing: '0.14em', color: muted }}
+                >
+                    {base.subtitle}
+                </Text>
+
+                <Flex
+                    align="center"
+                    gap={10}
+                    mb={34}
+                    style={{
+                        display: 'inline-flex',
+                        width: 'fit-content',
+                        border: `1px solid ${accent}`,
+                        backgroundColor: 'var(--mantine-color-terracota-0)',
+                        padding: '6px 14px 6px 10px',
+                    }}
+                >
                     <Box
                         className={classes.pulseDotSlow}
                         style={{
@@ -34,7 +56,7 @@ function Hero({ onSearch }: HeroProps) {
                     />
                     <Text
                         ff="var(--mantine-font-family-monospace)"
-                        fz={11}
+                        fz={10}
                         tt="uppercase"
                         style={{ letterSpacing: '0.14em', color: muted }}
                     >
@@ -45,22 +67,26 @@ function Hero({ onSearch }: HeroProps) {
                 <Title
                     order={1}
                     fw={500}
-                    fz={{ base: 40, sm: 52, md: 64, lg: 76 }}
+                    fz={{ base: 48, sm: 62, md: 77, lg: 91 }}
                     lh={0.98}
-                    maw={900}
+                    maw={1080}
                     mb={12}
                     style={{ letterSpacing: '-0.035em' }}
                 >
-                    O que você precisa saber sobre o Capão Lab?
+                    O que você precisa saber sobre o{' '}
+                    <Text component="span" inherit style={{ color: accent }}>
+                        Capão Lab
+                    </Text>
+                    ?
                 </Title>
-                <Text fz={{ base: 16, md: 19 }} maw={620} mb={44} style={{ color: muted, lineHeight: 1.5 }}>
+                <Text fz={{ base: 19, md: 23 }} maw={740} mb={44} style={{ color: muted, lineHeight: 1.5 }}>
                     Escreva a pergunta como você falaria. O índice responde em texto e aponta para o projeto,
                     a frente ou o contato correspondente.
                 </Text>
 
-                <Box component="form" onSubmit={submit} maw={900} style={{ borderBottom: `1.5px solid ${ink}` }} pb={14}>
+                <Box component="form" onSubmit={submit} maw={1080} style={{ borderBottom: `1.5px solid ${ink}` }} pb={14}>
                     <Flex align="center" gap={16}>
-                        <Text ff="var(--mantine-font-family-monospace)" fz={22} style={{ color: accent }}>
+                        <Text ff="var(--mantine-font-family-monospace)" fz={26} style={{ color: accent }}>
                             &gt;
                         </Text>
                         <Box
@@ -68,13 +94,14 @@ function Hero({ onSearch }: HeroProps) {
                             value={query}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
                             placeholder="quem faz parte do lab? quais projetos estão ativos?"
+                            className={classes.heroInput}
                             style={{
                                 flex: 1,
                                 border: 'none',
                                 outline: 'none',
                                 background: 'transparent',
                                 fontFamily: 'var(--mantine-font-family-monospace)',
-                                fontSize: 21,
+                                fontSize: 25,
                                 color: ink,
                                 padding: 0,
                                 minWidth: 0,
@@ -83,12 +110,13 @@ function Hero({ onSearch }: HeroProps) {
                         <Box
                             component="button"
                             type="submit"
+                            className={classes.ctaButton}
                             style={{
                                 border: 'none',
                                 background: ink,
                                 color: 'var(--mantine-color-body)',
                                 fontFamily: 'var(--mantine-font-family-monospace)',
-                                fontSize: 12,
+                                fontSize: 14,
                                 letterSpacing: '0.1em',
                                 textTransform: 'uppercase',
                                 padding: '11px 18px',
@@ -100,7 +128,7 @@ function Hero({ onSearch }: HeroProps) {
                     </Flex>
                 </Box>
 
-                <Flex wrap="wrap" gap={8} mt={20} maw={900}>
+                <Flex wrap="wrap" gap={8} mt={20} maw={1080}>
                     {SEARCH_SUGGESTIONS.map((suggestion) => (
                         <Box
                             key={suggestion}
@@ -110,7 +138,7 @@ function Hero({ onSearch }: HeroProps) {
                             className={classes.suggestion}
                             style={{
                                 fontFamily: 'var(--mantine-font-family-monospace)',
-                                fontSize: 12,
+                                fontSize: 14,
                                 border: `1px solid ${line}`,
                                 padding: '7px 12px',
                             }}

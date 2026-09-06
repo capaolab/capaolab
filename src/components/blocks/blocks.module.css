@@ -2,10 +2,33 @@
     background: transparent;
     cursor: pointer;
     color: var(--mantine-color-gray-6);
+    transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
 }
 .suggestion:hover {
-    color: var(--mantine-color-black);
-    border-color: var(--mantine-color-black);
+    color: var(--mantine-color-terracota-7);
+    border-color: var(--mantine-color-terracota-7);
+    background-color: var(--mantine-color-terracota-0);
+}
+
+.ctaButton {
+    transition: background-color 150ms ease;
+}
+.ctaButton:hover {
+    background-color: var(--mantine-color-terracota-7) !important;
+}
+
+.backButton {
+    color: var(--mantine-color-gray-6);
+    transition: color 150ms ease;
+}
+.backButton:hover {
+    color: var(--mantine-color-terracota-7);
+}
+
+@media (max-width: 36em) {
+    .heroInput::placeholder {
+        color: transparent;
+    }
 }
 
 .projectRow {
