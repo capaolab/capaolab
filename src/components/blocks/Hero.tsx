@@ -2,10 +2,15 @@
 
 import React, { useState } from 'react';
 import { Box, Container, Flex, Text, Title } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
+import ContourField from '@/components/elements/ContourField';
 import { useDesignTokens } from '@/theme/tokens';
 import { SEARCH_SUGGESTIONS } from '@/content/searchKb';
 import { base } from '@/content/infos';
 import classes from './blocks.module.css';
+
+const ORIGIN_DESKTOP: [number, number] = [0.8, 0.5];
+const ORIGIN_MOBILE: [number, number] = [0.95, 0.12];
 
 interface HeroProps {
     onSearch: (query: string) => void;
@@ -14,6 +19,10 @@ interface HeroProps {
 function Hero({ onSearch }: HeroProps) {
     const { accent, muted, line, ink } = useDesignTokens();
     const [query, setQuery] = useState('');
+    const [focused, setFocused] = useState(false);
+    const isDesktop = useMediaQuery('(min-width: 1024px)');
+    // The field wakes up while the visitor is composing a question.
+    const energy = focused ? (query ? 1 : 0.45) : 0;
 
     function submit(e: React.FormEvent) {
         e.preventDefault();
@@ -22,7 +31,15 @@ function Hero({ onSearch }: HeroProps) {
 
     return (
         <Box id="topo" className={classes.heroSlot} style={{ borderBottom: `1px solid ${line}` }}>
-            <Container size="xxl" w="100%" py={{ base: 40, md: 60 }}>
+            <Box className={classes.heroField}>
+                <ContourField
+                    origin={isDesktop ? ORIGIN_DESKTOP : ORIGIN_MOBILE}
+                    energy={energy}
+                    lineColor="rgba(22, 18, 15, 0.16)"
+                    accentColor={accent}
+                />
+            </Box>
+            <Container size="xxl" w="100%" py={{ base: 40, md: 60 }} className={classes.heroContent}>
                 <Text
                     ff="var(--mantine-font-family-monospace)"
                     fz={13}
@@ -40,8 +57,8 @@ function Hero({ onSearch }: HeroProps) {
                     style={{
                         display: 'inline-flex',
                         width: 'fit-content',
-                        border: `1px solid ${accent}`,
-                        backgroundColor: 'var(--mantine-color-terracota-0)',
+                        border: `1px solid ${line}`,
+                        backgroundColor: 'var(--cl-paper)',
                         padding: '6px 14px 6px 10px',
                     }}
                 >
@@ -93,6 +110,9 @@ function Hero({ onSearch }: HeroProps) {
                             component="input"
                             value={query}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
+                            onFocus={() => setFocused(true)}
+                            onBlur={() => setFocused(false)}
+                            aria-label="Pergunte sobre o Capão Lab"
                             placeholder="quem faz parte do lab? quais projetos estão ativos?"
                             className={classes.heroInput}
                             style={{

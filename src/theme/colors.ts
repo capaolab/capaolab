@@ -33,5 +33,5 @@ export const folha: MantineColorsTuple = [
 // on theme.other so components can pull them via useDesignTokens().
 export const paper = '#F6F3F0';
 export const ink = '#16120F';
-export const muted = '#8C837C';
+export const muted = '#6B635D';
 export const line = '#DFD8D1';

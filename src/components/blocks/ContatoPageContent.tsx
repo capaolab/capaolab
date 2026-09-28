@@ -1,13 +1,11 @@
 import React from 'react';
 import { Box, Container, SimpleGrid, Text, Title } from '@mantine/core';
 
-// Static hex values mirror theme.other (see src/theme/colors.ts) — this page
-// has no interactivity, so it stays a server component instead of pulling
-// the useDesignTokens() hook.
-const ink = '#16120F';
-const muted = '#8C837C';
-const line = '#DFD8D1';
-const accent = '#C2542F';
+import { ink, muted, line, terracota } from '@/theme/colors';
+
+// This page has no interactivity, so it stays a server component and reads
+// the raw palette instead of the useDesignTokens() hook.
+const accent = terracota[7];
 
 const channels = [
     { label: 'Endereço', value: 'Caeté-Açu, Palmeiras — Bahia' },

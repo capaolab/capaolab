@@ -1,7 +1,7 @@
 .suggestion {
-    background: transparent;
+    background: var(--cl-paper);
     cursor: pointer;
-    color: var(--mantine-color-gray-6);
+    color: var(--cl-muted);
     transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
 }
 .suggestion:hover {
@@ -18,10 +18,18 @@
 }
 
 .backButton {
-    color: var(--mantine-color-gray-6);
+    color: var(--cl-muted);
     transition: color 150ms ease;
 }
 .backButton:hover {
+    color: var(--mantine-color-terracota-7);
+}
+
+.clearButton {
+    color: var(--cl-muted);
+    transition: color 150ms ease;
+}
+.clearButton:hover {
     color: var(--mantine-color-terracota-7);
 }
 
@@ -31,15 +39,6 @@
     }
 }
 
-.projectRow {
-    color: inherit;
-    text-decoration: none;
-    display: block;
-}
-.projectRow:hover {
-    background-color: var(--mantine-color-terracota-0);
-}
-
 .sourceLink {
     color: inherit;
     text-decoration: none;
@@ -47,6 +46,35 @@
 }
 .sourceLink:hover {
     color: var(--mantine-color-terracota-7);
+}
+
+.sourceIndex {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--mantine-color-terracota-7);
+    color: var(--mantine-color-terracota-7);
+    font-family: var(--mantine-font-family-monospace);
+    font-size: 12px;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+.sourceLink:hover .sourceIndex {
+    background-color: var(--mantine-color-terracota-7);
+    color: var(--mantine-color-body);
+}
+
+.sourceArrow {
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 150ms ease, transform 150ms ease;
+}
+.sourceLink:hover .sourceArrow {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 @keyframes blink {
@@ -81,9 +109,36 @@
     flex-direction: column;
 }
 .heroSlot {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+/* Contour field sits behind the hero copy. Desktop: occupies the right
+   side and fades out before reaching the headline. Mobile: a faint corner
+   texture, masked radially so it never sits under the text. */
+.heroField {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(circle at 100% 0%, #000 0%, transparent 70%);
+    mask-image: radial-gradient(circle at 100% 0%, #000 0%, transparent 70%);
+    opacity: 0.8;
+}
+.heroContent {
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 1024px) {
+    .heroField {
+        left: 35%;
+        opacity: 1;
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 45%);
+        mask-image: linear-gradient(to right, transparent 0%, #000 45%);
+    }
 }
 
 @media (max-width: 1023.98px) {
@@ -98,5 +153,133 @@
     }
     .heroSlot {
         flex: 1;
+    }
+}
+
+/* Anchored sections land below the sticky header instead of under it. */
+.anchorSection {
+    scroll-margin-top: var(--header-h, 65px);
+}
+
+/* Projetos — desktop fills one screen: heading on top, then an index list
+   next to a detail panel whose cover is a per-project contour field. */
+@media (min-width: 1024px) {
+    .projectsSection {
+        min-height: calc(100dvh - var(--header-h, 65px));
+        display: flex;
+    }
+    .projectsInner {
+        display: flex;
+        flex-direction: column;
+    }
+}
+.projectsGrid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 48px;
+    padding-top: 24px;
+    min-height: 0;
+}
+.projectList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-self: start;
+}
+.projectItem {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    align-items: baseline;
+    gap: 16px;
+    padding: 20px 12px 20px 0;
+    border: none;
+    border-bottom: 1px solid var(--cl-line);
+    background: transparent;
+    color: var(--cl-muted);
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+    transition: color 150ms ease, padding-left 200ms ease;
+}
+.projectItem[data-active] {
+    color: var(--cl-ink);
+    padding-left: 14px;
+    box-shadow: inset 3px 0 0 var(--mantine-color-terracota-7);
+}
+.projectItem:focus-visible {
+    outline: 2px solid var(--mantine-color-terracota-7);
+    outline-offset: -2px;
+}
+.projectYear {
+    color: var(--cl-muted);
+}
+.projectTitle {
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+.projectArrow {
+    color: var(--mantine-color-terracota-7);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 150ms ease, transform 150ms ease;
+}
+.projectItem[data-active] .projectArrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+.projectPanel {
+    display: flex;
+    flex-direction: column;
+}
+.projectCover {
+    position: relative;
+    flex: 1;
+    min-height: 180px;
+}
+.projectCoverIndex {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+}
+.projectRowButton {
+    width: 100%;
+    display: block;
+    padding: 18px 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+}
+
+/* Quem somos — full-bleed ink band, the page's main change of rhythm. */
+.darkBand {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--cl-ink);
+    color: var(--cl-paper);
+}
+.darkBandField {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 20%, #000 80%);
+    mask-image: linear-gradient(to right, transparent 20%, #000 80%);
+}
+.darkBandStep {
+    border-top: 1px solid rgba(246, 243, 240, 0.18);
+}
+.darkBandStep:first-child {
+    border-top: none;
+}
+@media (min-width: 768px) {
+    .darkBandStep {
+        border-top: none;
+    }
+    .darkBandStep + .darkBandStep {
+        border-left: 1px solid rgba(246, 243, 240, 0.18);
     }
 }

@@ -1,33 +1,27 @@
 import React from 'react';
 import { Box, Container, SimpleGrid, Text, Title } from '@mantine/core';
+import SectionHeading from '@/components/elements/SectionHeading';
 import { frentesContent } from '@/content/cards';
 import { useDesignTokens } from '@/theme/tokens';
+import classes from './blocks.module.css';
 
 function Frentes() {
     const { accent, muted, line, paper } = useDesignTokens();
 
     return (
-        <Box id="frentes" component="section">
-            <Container size="xxl" w="100%" py={{ base: 56, md: 80 }}>
-                <SimpleGrid cols={{ base: 1, md: 2 }} spacing={{ base: 40, md: 64 }} mb={40}>
-                    <Title
-                        order={2}
-                        ff="var(--mantine-font-family-monospace)"
-                        fz={14}
-                        tt="uppercase"
-                        fw={500}
-                        style={{ letterSpacing: '0.14em' }}
-                    >
-                        Frentes
-                    </Title>
-                    <Text fz={18} style={{ color: muted, lineHeight: 1.55, maxWidth: 550 }}>
-                        O que o lab entrega, sem intermediários. Cada frente abre um projeto próprio no índice.
-                    </Text>
-                </SimpleGrid>
+        <Box id="frentes" component="section" className={classes.anchorSection}>
+            <Container size="xxl" w="100%" py={{ base: 56, md: 96 }}>
+                <SectionHeading
+                    index="02"
+                    title="Frentes"
+                    meta={`${String(frentesContent.length).padStart(2, '0')} frentes ativas`}
+                    intro="O que o lab entrega, sem intermediários. Cada frente abre um projeto próprio no índice."
+                />
 
                 <SimpleGrid
                     cols={{ base: 1, md: 2 }}
                     spacing={1}
+                    mt={40}
                     style={{ backgroundColor: line, border: `1px solid ${line}` }}
                 >
                     {frentesContent.map((frente) => (
