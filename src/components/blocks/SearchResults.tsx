@@ -72,6 +72,26 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
                                 minWidth: 0,
                             }}
                         />
+                        {draft.length > 0 && (
+                            <Box
+                                component="button"
+                                type="button"
+                                onClick={() => setDraft('')}
+                                aria-label="Limpar pergunta"
+                                className={classes.clearButton}
+                                style={{
+                                    border: 'none',
+                                    background: 'transparent',
+                                    cursor: 'pointer',
+                                    padding: 4,
+                                    fontFamily: 'var(--mantine-font-family-monospace)',
+                                    fontSize: 20,
+                                    lineHeight: 1,
+                                }}
+                            >
+                                ×
+                            </Box>
+                        )}
                         <Box
                             component="button"
                             type="submit"
@@ -158,7 +178,7 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
                         >
                             fontes no índice
                         </Text>
-                        {!thinking && hit && hit.sources.map((source) => (
+                        {!thinking && hit && hit.sources.map((source, index) => (
                             <Box
                                 key={source.label}
                                 component="a"
@@ -169,22 +189,35 @@ function SearchResults({ query, thinking, hit, onBack, onSubmit, onSuggest, onSo
                                 }}
                                 className={classes.sourceLink}
                                 py={18}
-                                style={{ borderBottom: `1px solid ${line}` }}
+                                style={{ borderBottom: `1px solid ${line}`, display: 'flex', gap: 16, alignItems: 'flex-start' }}
                             >
+                                <Box className={classes.sourceIndex}>
+                                    {String(index + 1).padStart(2, '0')}
+                                </Box>
+                                <Box style={{ flex: 1, minWidth: 0 }}>
+                                    <Text
+                                        ff="var(--mantine-font-family-monospace)"
+                                        fz={12}
+                                        tt="uppercase"
+                                        mb={7}
+                                        style={{ letterSpacing: '0.12em', color: muted }}
+                                    >
+                                        {source.kind}
+                                    </Text>
+                                    <Text fz={20} style={{ letterSpacing: '-0.01em' }}>
+                                        {source.label}
+                                    </Text>
+                                    <Text fz={17} mt={5} style={{ color: muted, lineHeight: 1.45 }}>
+                                        {source.meta}
+                                    </Text>
+                                </Box>
                                 <Text
                                     ff="var(--mantine-font-family-monospace)"
-                                    fz={12}
-                                    tt="uppercase"
-                                    mb={7}
-                                    style={{ letterSpacing: '0.12em', color: muted }}
+                                    fz={18}
+                                    className={classes.sourceArrow}
+                                    style={{ color: accent }}
                                 >
-                                    {source.kind}
-                                </Text>
-                                <Text fz={20} style={{ letterSpacing: '-0.01em' }}>
-                                    {source.label}
-                                </Text>
-                                <Text fz={17} mt={5} style={{ color: muted, lineHeight: 1.45 }}>
-                                    {source.meta}
+                                    &rarr;
                                 </Text>
                             </Box>
                         ))}
